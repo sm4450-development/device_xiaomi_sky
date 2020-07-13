@@ -126,11 +126,12 @@ on boot && property:persist.vendor.usb.controller.default=*
 on property:vendor.usb.controller=*
     setprop sys.usb.controller ${vendor.usb.controller}
 
-on charger
-    mount_all /vendor/etc/charger_fstab.qti --early
+on init && property:ro.boot.mode=charger
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
     write /sys/kernel/boot_adsp/boot 1
-    #restart charger after ADSP is out of reset
-    restart charger
+    wait /sys/class/power_supply/battery
+
+on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
