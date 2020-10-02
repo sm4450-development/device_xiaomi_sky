@@ -26,11 +26,6 @@ droidcore: $(INSTALLED_BOOTLOADER_MODULE)
 endif
 
 #----------------------------------------------------------------------
-# Compile Linux Kernel
-#----------------------------------------------------------------------
-include device/qcom/kernelscripts/kernel_definitions.mk
-
-#----------------------------------------------------------------------
 # Copy additional target-specific files
 #----------------------------------------------------------------------
 include $(CLEAR_VARS)

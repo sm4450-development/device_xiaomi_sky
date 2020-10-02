@@ -1,8 +1,8 @@
 BUILD_BROKEN_DUP_RULES := true
 TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
 
-ALLOW_MISSING_DEPENDENCIES=true
-TARGET_BOARD_PLATFORM=taro
+ALLOW_MISSING_DEPENDENCIES := true
+TARGET_BOARD_PLATFORM := taro
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
@@ -90,12 +90,23 @@ TARGET_USES_QMAA_OVERRIDE_VPP := false
 TARGET_USES_QMAA_OVERRIDE_GP := false
 TARGET_USES_QMAA_OVERRIDE_BIOMETRICS := false
 TARGET_USES_QMAA_OVERRIDE_SPCOM_UTEST := false
+TARGET_USES_QMAA_OVERRIDE_PERF := false
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
 
 ###########
 #QMAA flags ends
+
+# Use prebuilt kernel(Image) to generate boot.img
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+    LOCAL_KERNEL := device/qcom/taro-kernel/Image
+else
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+# Copy Image as kernel to allow boot.img generation
+PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 #Suppot to compile recovery without msm headers
 TARGET_HAS_GENERIC_KERNEL_HEADERS := true
@@ -106,6 +117,19 @@ ifeq ($(TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG),true)
 PRODUCT_PACKAGES += init.qti.usb.qmaa.rc
 endif
 endif
+
+SHIPPING_API_LEVEL := 30
+PRODUCT_SHIPPING_API_LEVEL := 30
+# TODO: Remove below flag when upstream compatibility matrix
+# has support for 5.9 kernel
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
+# Set kernel version and ion flags
+TARGET_KERNEL_VERSION := 5.9
+TARGET_USES_NEW_ION := true
+
+# Disable DLKM generation until build support is available
+TARGET_KERNEL_DLKM_DISABLE := true
 
 #####Dynamic partition Handling
 ###
@@ -139,7 +163,6 @@ $(call inherit-product, build/make/target/product/gsi_keys.mk)
 
 BOARD_HAVE_BLUETOOTH := false
 BOARD_HAVE_QCOM_FM := false
-TARGET_DISABLE_PERF_OPTIMIATIONS := false
 
 # privapp-permissions whitelisting (To Fix CTS :privappPermissionsMustBeEnforced)
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=enforce
@@ -178,6 +201,19 @@ else
 include device/qcom/wlan/lahaina/wlan.mk
 endif
 
+#----------------------------------------------------------------------
+# perf specific
+#----------------------------------------------------------------------
+ifeq ($(TARGET_USES_QMAA), true)
+    ifneq ($(TARGET_USES_QMAA_OVERRIDE_PERF), true)
+        TARGET_DISABLE_PERF_OPTIMIZATIONS := true
+    else
+        TARGET_DISABLE_PERF_OPTIMIZATIONS := false
+    endif
+else
+    TARGET_DISABLE_PERF_OPTIMIZATIONS := false
+endif
+# /* Disable perf opts */
 
 #----------------------------------------------------------------------
 # audio specific
@@ -308,13 +344,12 @@ PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
 # Enable binderized camera HAL
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service_64
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/lahaina/framework_manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
 # QCV allows multiple chipsets to be supported on a single vendor.
-# Add vintf device manifests for chipsets in Lahaina QCV family below.
-DEVICE_MANIFEST_SKUS := lahaina
-DEVICE_MANIFEST_LAHAINA_FILES := device/qcom/lahaina/manifest_lahaina.xml
-DEVICE_MANIFEST_SHIMA_FILES := device/qcom/lahaina/manifest_shima.xml
+# Add vintf device manifests for chipsets in taro QCV family below.
+DEVICE_MANIFEST_SKUS := taro
+DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
@@ -376,7 +411,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-BOARD_SYSTEMSDK_VERSIONS := 28
+BOARD_SYSTEMSDK_VERSIONS := 30
 BOARD_VNDK_VERSION := current
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
@@ -414,7 +449,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.enableadvancedscan=true
 
 PRODUCT_COPY_FILES += \
-    device/qcom/lahaina/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+    device/qcom/taro/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # ODM ueventd.rc
 # - only for use with VM support right now

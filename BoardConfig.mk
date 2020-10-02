@@ -31,8 +31,19 @@ TARGET_NO_KERNEL := false
 
 USE_OPENGL_RENDERER := true
 
-#Generate DTBO image
-BOARD_KERNEL_SEPARATED_DTBO := true
+# TODO: Enable it back when we have a path forward
+# Disable generation of dtbo.img
+BOARD_KERNEL_SEPARATED_DTBO := false
+
+# Path to prebuilt dtbo.img
+BOARD_PREBUILT_DTBOIMAGE := device/qcom/taro-kernel/dtbo.img
+# Path to prebuilt .dtb's used for dtb.img generation
+BOARD_PREBUILT_DTBIMAGE_DIR := device/qcom/taro-kernel
+
+# Store sanitized version of MSM headers which are needed in
+# addition to bionic headers in below path. These headers get
+# added to include path by default
+TARGET_BOARD_KERNEL_HEADERS := device/qcom/taro-kernel/kernel-headers
 
 ### Dynamic partition Handling
 # Define the Dynamic Partition sizes and groups.
@@ -199,7 +210,7 @@ endif
 
 BOARD_DO_NOT_STRIP_VENDOR_MODULES := true
 TARGET_USES_ION := true
-TARGET_USES_NEW_ION_API :=true
+TARGET_USES_NEW_ION_API := true
 
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket pcie_ports=compat loop.max_part=7
 
@@ -225,7 +236,8 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Disable appended dtb.
 TARGET_KERNEL_APPEND_DTB := false
-TARGET_COMPILE_WITH_MSM_KERNEL := true
+# Compile without full kernel source
+TARGET_COMPILE_WITH_MSM_KERNEL := false
 
 #Enable dtb in boot image and boot image header version 3 support.
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
