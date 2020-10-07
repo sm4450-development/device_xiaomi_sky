@@ -2,7 +2,7 @@ BUILD_BROKEN_DUP_RULES := true
 TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
 
 ALLOW_MISSING_DEPENDENCIES=true
-TARGET_BOARD_PLATFORM=lahaina
+TARGET_BOARD_PLATFORM=taro
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
@@ -52,7 +52,7 @@ TARGET_USES_QMAA := true
 #true means overriding global QMAA for this tech area
 #false means using global, no override
 TARGET_USES_QMAA_OVERRIDE_RPMB	:= false
-TARGET_USES_QMAA_OVERRIDE_DISPLAY := true
+TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
 TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
 TARGET_USES_QMAA_OVERRIDE_CAMERA  := false
@@ -78,10 +78,10 @@ TARGET_USES_QMAA_OVERRIDE_KERNEL_TESTS_INTERNAL := false
 TARGET_USES_QMAA_OVERRIDE_MSMIRQBALANCE := false
 TARGET_USES_QMAA_OVERRIDE_VIBRATOR := false
 TARGET_USES_QMAA_OVERRIDE_DRM     := false
-TARGET_USES_QMAA_OVERRIDE_KMGK := true
+TARGET_USES_QMAA_OVERRIDE_KMGK := false
 TARGET_USES_QMAA_OVERRIDE_VPP := false
 TARGET_USES_QMAA_OVERRIDE_GP := false
-TARGET_USES_QMAA_OVERRIDE_BIOMETRICS := true
+TARGET_USES_QMAA_OVERRIDE_BIOMETRICS := false
 TARGET_USES_QMAA_OVERRIDE_SPCOM_UTEST := false
 
 #Full QMAA HAL List
@@ -147,7 +147,7 @@ PRODUCT_PROPERTY_OVERRIDES  += \
 PRODUCT_NAME := taro
 PRODUCT_DEVICE := taro
 PRODUCT_BRAND := qti
-PRODUCT_MODEL := Lahaina for arm64
+PRODUCT_MODEL := Taro for arm64
 
 PRODUCT_PACKAGES += android.hardware.configstore@1.1-service
 
@@ -207,6 +207,7 @@ KERNEL_SD_LLVM_SUPPORT := false
 # Target configurations
 
 QCOM_BOARD_PLATFORMS += lahaina
+QCOM_BOARD_PLATFORMS += taro
 
 TARGET_USES_QSSI := true
 
@@ -297,7 +298,7 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/lahaina/framework_manifest.xml
 
 # QCV allows multiple chipsets to be supported on a single vendor.
 # Add vintf device manifests for chipsets in Lahaina QCV family below.
-DEVICE_MANIFEST_SKUS := lahaina shima
+DEVICE_MANIFEST_SKUS := lahaina
 DEVICE_MANIFEST_LAHAINA_FILES := device/qcom/lahaina/manifest_lahaina.xml
 DEVICE_MANIFEST_SHIMA_FILES := device/qcom/lahaina/manifest_shima.xml
 
