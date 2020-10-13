@@ -100,6 +100,13 @@ QMAA_HAL_LIST := audio video camera display sensors gps
 #Suppot to compile recovery without msm headers
 TARGET_HAS_GENERIC_KERNEL_HEADERS := true
 
+# Enable USB detection in QMAA mode
+ifeq ($(TARGET_USES_QMAA),true)
+ifeq ($(TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG),true)
+PRODUCT_PACKAGES += init.qti.usb.qmaa.rc
+endif
+endif
+
 #####Dynamic partition Handling
 ###
 #### Turning this flag to TRUE will enable dynamic partition/super image creation.

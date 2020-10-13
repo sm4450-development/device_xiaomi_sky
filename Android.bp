@@ -1,0 +1,7 @@
+// Enable USB detection in QMAA mode
+prebuilt_etc {
+    name: "init.qti.usb.qmaa.rc",
+    src: "init.qti.usb.qmaa.rc",
+    vendor: true,
+    sub_dir: "init",
+}
