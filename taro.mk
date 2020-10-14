@@ -48,6 +48,13 @@ SYSTEMEXT_SEPARATE_PARTITION_ENABLE = true
 #false means QMAA is disabled for system
 
 TARGET_USES_QMAA := true
+
+#QMAA flag which is set to incorporate any generic dependencies
+#required for the boot to UI flow in a QMAA enabled target.
+#Set to false when all target level depenencies are met with
+#actual full blown implementations.
+TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := true
+
 #QMAA tech team flag to override global QMAA per tech team
 #true means overriding global QMAA for this tech area
 #false means using global, no override
