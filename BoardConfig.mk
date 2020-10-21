@@ -68,7 +68,11 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x06400000
 TARGET_COPY_OUT_ODM := odm
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 ifeq ($(ENABLE_AB), true)
+ifeq ($(BOARD_AVB_ENABLE),true)
 AB_OTA_PARTITIONS ?= boot vendor_boot vendor odm dtbo vbmeta
+else
+AB_OTA_PARTITIONS ?= boot vendor_boot vendor odm dtbo
+endif
 endif
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 
