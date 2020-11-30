@@ -96,6 +96,11 @@ TARGET_USES_QMAA_OVERRIDE_SENSORS := false
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
 
+ifeq ($(TARGET_USES_QMAA), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.confqmaa=true
+endif
+
 ###########
 #QMAA flags ends
 
