@@ -25,6 +25,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a75
 
 TARGET_NO_BOOTLOADER := false
 TARGET_USES_UEFI := true
+TARGET_USES_REMOTEPROC := true
 TARGET_NO_KERNEL := false
 
 -include $(QCPATH)/common/lahaina/BoardConfigVendor.mk
