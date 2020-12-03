@@ -121,6 +121,8 @@ TARGET_HAS_GENERIC_KERNEL_HEADERS := true
 ifeq ($(TARGET_USES_QMAA),true)
 ifeq ($(TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG),true)
 PRODUCT_PACKAGES += init.qti.usb.qmaa.rc
+# Enable USB in adb-only configuration
+PRODUCT_PROPERTY_OVERRIDES += persist.vendor.usb.config=adb
 endif
 endif
 

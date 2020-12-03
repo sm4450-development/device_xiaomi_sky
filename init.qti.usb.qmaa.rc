@@ -27,5 +27,5 @@
 #
 
 # Enable USB detection in QMAA mode
-on boot
+on post-fs-data
     write /sys/class/usb_role/a600000.ssusb-role-switch/role device
