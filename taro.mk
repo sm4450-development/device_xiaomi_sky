@@ -111,16 +111,6 @@ endif
 ###########
 #QMAA flags ends
 
-# Use prebuilt kernel(Image) to generate boot.img
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/qcom/taro-kernel/Image
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-# Copy Image as kernel to allow boot.img generation
-PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
-
 #Suppot to compile recovery without msm headers
 TARGET_HAS_GENERIC_KERNEL_HEADERS := true
 

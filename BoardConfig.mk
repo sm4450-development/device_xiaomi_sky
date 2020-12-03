@@ -34,16 +34,6 @@ USE_OPENGL_RENDERER := true
 # Disable generation of dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := false
 
-# Path to prebuilt dtbo.img
-BOARD_PREBUILT_DTBOIMAGE := device/qcom/taro-kernel/dtbo.img
-# Path to prebuilt .dtb's used for dtb.img generation
-BOARD_PREBUILT_DTBIMAGE_DIR := device/qcom/taro-kernel
-
-# Store sanitized version of MSM headers which are needed in
-# addition to bionic headers in below path. These headers get
-# added to include path by default
-TARGET_BOARD_KERNEL_HEADERS := device/qcom/taro-kernel/kernel-headers
-
 ### Dynamic partition Handling
 # Define the Dynamic Partition sizes and groups.
 ifeq ($(ENABLE_AB), true)
@@ -118,101 +108,6 @@ BOARD_METADATAIMAGE_PARTITION_SIZE := 16777216
 BOARD_DTBOIMG_PARTITION_SIZE := 0x0800000
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
-
-#BOARD_VENDOR_KERNEL_MODULES := \
-#    $(KERNEL_MODULES_OUT)/audio_apr.ko \
-#    $(KERNEL_MODULES_OUT)/audio_q6_pdr.ko \
-#    $(KERNEL_MODULES_OUT)/audio_q6_notifier.ko \
-#    $(KERNEL_MODULES_OUT)/audio_adsp_loader.ko \
-#    $(KERNEL_MODULES_OUT)/audio_q6.ko \
-#    $(KERNEL_MODULES_OUT)/audio_usf.ko \
-#    $(KERNEL_MODULES_OUT)/audio_pinctrl_wcd.ko \
-#    $(KERNEL_MODULES_OUT)/audio_pinctrl_lpi.ko \
-#    $(KERNEL_MODULES_OUT)/audio_swr.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wcd_core.ko \
-#    $(KERNEL_MODULES_OUT)/audio_swr_ctrl.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wsa881x.ko \
-#    $(KERNEL_MODULES_OUT)/audio_platform.ko \
-#    $(KERNEL_MODULES_OUT)/audio_hdmi.ko \
-#    $(KERNEL_MODULES_OUT)/audio_stub.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wcd9xxx.ko \
-#    $(KERNEL_MODULES_OUT)/audio_mbhc.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wcd938x.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wcd938x_slave.ko \
-#    $(KERNEL_MODULES_OUT)/audio_bolero_cdc.ko \
-#    $(KERNEL_MODULES_OUT)/audio_wsa_macro.ko \
-#    $(KERNEL_MODULES_OUT)/audio_va_macro.ko \
-#    $(KERNEL_MODULES_OUT)/audio_rx_macro.ko \
-#    $(KERNEL_MODULES_OUT)/audio_tx_macro.ko \
-#    $(KERNEL_MODULES_OUT)/audio_native.ko \
-#    $(KERNEL_MODULES_OUT)/audio_machine_lahaina.ko \
-#    $(KERNEL_MODULES_OUT)/audio_snd_event.ko \
-#    $(KERNEL_MODULES_OUT)/qca_cld3_wlan.ko \
-#    $(KERNEL_MODULES_OUT)/wil6210.ko \
-#    $(KERNEL_MODULES_OUT)/msm_11ad_proxy.ko \
-#    $(KERNEL_MODULES_OUT)/br_netfilter.ko \
-#    $(KERNEL_MODULES_OUT)/gspca_main.ko \
-#    $(KERNEL_MODULES_OUT)/lcd.ko \
-#    $(KERNEL_MODULES_OUT)/llcc_perfmon.ko \
-
-# check for for userdebug and eng build variants and install the appropriate modules
-#ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-#ifeq (,$(findstring perf_defconfig, $(KERNEL_DEFCONFIG)))
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/atomic64_test.ko
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/lkdtm.ko
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/locktorture.ko
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/rcutorture.ko
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/test_user_copy.ko
-#BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/torture.ko
-#endif
-#endif
-
-
-ifeq (,$(findstring -qgki-debug_defconfig,$(KERNEL_DEFCONFIG)))
-$(warning #### GKI config ####)
-VENDOR_RAMDISK_KERNEL_MODULES := proxy-consumer.ko \
-				rpmh-regulator.ko \
-				refgen.ko \
-				stub-regulator.ko \
-                                clk-dummy.ko \
-				clk-qcom.ko \
-				clk-rpmh.ko \
-				gcc-lahaina.ko \
-				gcc-shima.ko \
-				qnoc-lahaina.ko \
-				qnoc-shima.ko \
-				cmd-db.ko \
-				qcom_rpmh.ko \
-				rpmhpd.ko \
-				icc-bcm-voter.ko \
-				icc-rpmh.ko \
-				pinctrl-msm.ko \
-				pinctrl-lahaina.ko \
-				pinctrl-shima.ko \
-				_qcom_scm.ko \
-				secure_buffer.ko \
-				iommu-logger.ko \
-				qcom-arm-smmu-mod.ko \
-				phy-qcom-ufs.ko \
-				phy-qcom-ufs-qrbtc-sdm845.ko \
-				phy-qcom-ufs-qmp-v4-lahaina.ko\
-				ufshcd-crypto-qti.ko \
-				crypto-qti-common.ko \
-				crypto-qti-hwkm.ko \
-				hwkm.ko \
-				frpc-adsprpc.ko \
-				cdsp-loader.ko \
-				ufs-qcom.ko \
-				qbt_handler.ko \
-				qcom_watchdog.ko \
-				qcom-pdc.ko \
-				qpnp-power-on.ko \
-				msm-poweroff.ko \
-				memory_dump_v2.ko \
-				ipa_fmwk.ko
-else
-$(warning #### QGKI config ####)
-endif
 
 BOARD_DO_NOT_STRIP_VENDOR_MODULES := true
 TARGET_USES_ION := true
@@ -292,6 +187,51 @@ SOONG_CONFIG_ufsbsg_ufsframework := bsg
 SOONG_CONFIG_NAMESPACES += perf
 SOONG_CONFIG_perf += ioctl
 SOONG_CONFIG_perf_ioctl := true
+
+#-----------------------------------------------------------------
+# kernel platform specific
+#-----------------------------------------------------------------
+PREBUILT_KERNEL_DIR ?= device/qcom/$(TARGET_BOARD_PLATFORM)-kernel
+KERNEL_PRODUCT_DIR := kernel_obj
+
+################################################################################
+# Path to prebuilt dtbo.img
+ifneq (,$(wildcard $(PREBUILT_KERNEL_DIR)/dtbs/))
+BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_KERNEL_DIR)/dtbs/dtbo.img
+# Path to prebuilt .dtb's used for dtb.img generation
+BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_KERNEL_DIR)/dtbs/
+else
+BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_KERNEL_DIR)/dtbo.img
+# Path to prebuilt .dtb's used for dtb.img generation
+BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_KERNEL_DIR)/
+endif
+
+################################################################################
+# Store sanitized version of MSM headers which are needed in
+# addition to bionic headers in below path. These headers get
+# added to include path by default
+TARGET_BOARD_KERNEL_HEADERS := $(PREBUILT_KERNEL_DIR)/kernel-headers
+
+################################################################################
+PRODUCT_COPY_FILES += $(PREBUILT_KERNEL_DIR)/Image:kernel
+PRODUCT_COPY_FILES += $(PREBUILT_KERNEL_DIR)/System.map:$(KERNEL_PRODUCT_DIR)/System.map
+
+################################################################################
+# $(1): folder inside PREBUILT_KERNEL_DIR (e.g. vendor)
+# $(2): Variable to add the prebuilt KOs to (e.g. BOARD_VENDOR_KERNEL_MODULES)
+# 1. Find all the modules in the prebuilt kernel directory
+# 2. Add them to the BOARD_*_KERNEL_MODULES variable
+# 3. Also copy the files to $(PRODUCT_OUT)/dlkm/lib/modules/unstripped for ramdump tools to pick up
+define setup-kernel-modules
+$(eval $(1)_kernel_modules := $(wildcard $(PREBUILT_KERNEL_DIR)/$(1)/*.ko)) \
+$(eval BOARD_$(2)_KERNEL_MODULES += $($(1)_kernel_modules))
+endef
+
+$(call setup-kernel-modules,.,VENDOR_RAMDISK)
+$(call setup-kernel-modules,vendor_dlkm,VENDOR)
+
+PRODUCT_COPY_FILES+=$(if $(wildcard $(PREBUILT_KERNEL_DIR)/modules.blocklist),$(PREBUILT_KERNEL_DIR)/modules.blocklist:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.blocklist,)
+PRODUCT_COPY_FILES+=$(if $(wildcard $(PREBUILT_KERNEL_DIR)/vendor_dlkm/modules.blocklist),$(PREBUILT_KERNEL_DIR)/vendor_dlkm/modules.blocklist:$(if $(filter true,$(BOARD_USES_VENDOR_DLKMIMAGE)),$(TARGET_COPY_OUT_VENDOR_DLKM),$(TARGET_COPY_OUT_VENDOR))/lib/modules/modules.blocklist,)
 
 #-----------------------------------------------------------------
 # wlan specific
