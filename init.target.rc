@@ -100,12 +100,12 @@ on boot
     write /dev/cpuset/audio-app/cpus 1-2
     # Add a cpuset for the camera daemon
     # We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
+    # mkdir /dev/cpuset/camera-daemon
+    # write /dev/cpuset/camera-daemon/cpus 0-7
+    # write /dev/cpuset/camera-daemon/mems 0
+    # chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    # chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    # chmod 0660 /dev/cpuset/camera-daemon/tasks
     chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_enable
     chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_enable
     #USB controller configuration
@@ -141,11 +141,11 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
-service vendor.lowi /vendor/bin/sscrpcd
-   class core
-   user system
-   group system wakelock
-   capabilities BLOCK_SUSPEND
+#service vendor.lowi /vendor/bin/sscrpcd
+#   class core
+#   user system
+#   group system wakelock
+#   capabilities BLOCK_SUSPEND
 
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
@@ -154,39 +154,39 @@ service vendor.pd_mapper /vendor/bin/pd-mapper
     group system
 
 #Peripheral manager
-service vendor.per_mgr /vendor/bin/pm-service
-    class core
-    user system
-    group system
-    ioprio rt 4
+#service vendor.per_mgr /vendor/bin/pm-service
+#    class core
+#    user system
+#    group system
+#    ioprio rt 4
 
-service vendor.per_proxy /vendor/bin/pm-proxy
-    class core
-    user system
-    group system
-    disabled
+#service vendor.per_proxy /vendor/bin/pm-proxy
+#    class core
+#    user system
+#    group system
+#    disabled
 
 #service vendor.mdm_helper /vendor/bin/mdm_helper
 #    class core
 #    group system wakelock
 #    disabled
 
-service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
-    class core
-    oneshot
+#service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
+#    class core
+#    oneshot
 
-on property:init.svc.vendor.per_mgr=running
-    start vendor.per_proxy
+#on property:init.svc.vendor.per_mgr=running
+#    start vendor.per_proxy
 
-on property:sys.shutdown.requested=*
-    stop vendor.per_proxy
+#on property:sys.shutdown.requested=*
+#    stop vendor.per_proxy
 
-on property:vold.decrypt=trigger_restart_framework
-   start vendor.cnss_diag
+#on property:vold.decrypt=trigger_restart_framework
+#   start vendor.cnss_diag
 
-service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
-   class main
-   user system
-   group system wifi inet sdcard_rw media_rw diag
-   oneshot
+#service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+#   class main
+#   user system
+#   group system wifi inet sdcard_rw media_rw diag
+#   oneshot
 

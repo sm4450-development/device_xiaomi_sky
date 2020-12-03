@@ -58,7 +58,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
-        <version>2.2</version>
+        <version>2.3</version>
         <interface>
             <name>ISoundTriggerHw</name>
             <instance>default</instance>
@@ -182,18 +182,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>INqNfc</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <!-- secure element -->
-    <hal format="hidl">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.2</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>eSE1</instance>
-           <instance>SIM1</instance>
-           <instance>SIM2</instance>
-       </interface>
     </hal>
     <!-- eSEPowerManager -->
     <hal format="hidl">
@@ -524,7 +512,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>2.2</version>
         <interface>
             <name>IPerf</name>
             <instance>default</instance>
@@ -578,16 +566,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.btconfigstore</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IBTConfigStore</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
     <!-- fm -->
     <hal format="hidl">
         <name>vendor.qti.hardware.fm</name>
@@ -639,17 +617,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IAlarm</name>
             <instance>default</instance>
-        </interface>
-    </hal>
-
-    <!-- Camera PostProcessing service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.camera.postproc</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IPostProcService</name>
-            <instance>camerapostprocservice</instance>
         </interface>
     </hal>
 
@@ -767,16 +734,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IEmbms</name>
             <instance>embmsslServer0</instance>
-        </interface>
-    </hal>
-    <!-- Memory PASR HAL -->
-    <hal format="hidl">
-        <name>vendor.qti.memory.pasrmanager</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IPasrManager</name>
-            <instance>pasrhal</instance>
         </interface>
     </hal>
 </manifest>
