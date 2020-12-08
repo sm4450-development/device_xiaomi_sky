@@ -201,6 +201,8 @@ VENDOR_RAMDISK_KERNEL_MODULES := proxy-consumer.ko \
 				crypto-qti-common.ko \
 				crypto-qti-hwkm.ko \
 				hwkm.ko \
+				frpc-adsprpc.ko \
+				cdsp-loader.ko \
 				ufs-qcom.ko \
 				qbt_handler.ko \
 				qcom_watchdog.ko \
