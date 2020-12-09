@@ -133,7 +133,7 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Set kernel version and ion flags
-TARGET_KERNEL_VERSION := 5.9
+TARGET_KERNEL_VERSION := 5.10
 TARGET_USES_NEW_ION := true
 
 # Disable DLKM generation until build support is available
@@ -264,7 +264,6 @@ KERNEL_SD_LLVM_SUPPORT := false
 ###########
 # Target configurations
 
-QCOM_BOARD_PLATFORMS += lahaina
 QCOM_BOARD_PLATFORMS += taro
 
 TARGET_USES_QSSI := true
