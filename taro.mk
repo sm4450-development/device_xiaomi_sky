@@ -353,6 +353,9 @@ PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service_64
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
+# Enable compilation of image_generation_tool
+TARGET_USES_IMAGE_GEN_TOOL := true
+
 # QCV allows multiple chipsets to be supported on a single vendor.
 # Add vintf device manifests for chipsets in taro QCV family below.
 DEVICE_MANIFEST_SKUS := taro
