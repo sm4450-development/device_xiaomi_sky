@@ -53,7 +53,7 @@ TARGET_USES_QMAA := true
 #required for the boot to UI flow in a QMAA enabled target.
 #Set to false when all target level depenencies are met with
 #actual full blown implementations.
-TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := true
+TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
 
 #QMAA tech team flag to override global QMAA per tech team
 #true means overriding global QMAA for this tech area
