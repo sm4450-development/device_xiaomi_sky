@@ -37,6 +37,13 @@ TARGET_SKIP_OTA_PACKAGE := true
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
 
+# Disable verified boot checks in abl if AVB is not enabled
+ifeq ($(BOARD_AVB_ENABLE), true)
+BOARD_ABL_SIMPLE := false
+else
+BOARD_ABL_SIMPLE := true
+endif
+
 # Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
 SYSTEMEXT_SEPARATE_PARTITION_ENABLE = true
 
