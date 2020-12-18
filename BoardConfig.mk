@@ -4,8 +4,6 @@
 #
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 
-BOARD_ABL_SIMPLE := true
-
 BOARD_SYSTEMSDK_VERSIONS := 30
 
 TARGET_BOARD_PLATFORM := taro
