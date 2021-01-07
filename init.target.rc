@@ -59,8 +59,8 @@ on init
     write /dev/cpuctl/top-app/cpu.rt_runtime_us 950000
     write /dev/cpuctl/rt/cpu.rt_runtime_us 950000
 
-    wait /dev/block/platform/soc/1d84000.ufshc
-    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
