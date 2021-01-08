@@ -30,9 +30,6 @@
 
 import /vendor/etc/init/hw/init.qti.kernel.rc
 
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules q6_pdr_dlkm q6_notifier_dlkm snd_event_dlkm apr_dlkm adsp_loader_dlkm q6_dlkm native_dlkm pinctrl_wcd_dlkm pinctrl_lpi_dlkm swr_dlkm platform_dlkm hdmi_dlkm stub_dlkm wcd_core_dlkm wsa883x_dlkm bolero_cdc_dlkm wsa_macro_dlkm va_macro_dlkm rx_macro_dlkm tx_macro_dlkm bt_fm_slim wcd938x_dlkm wcd938x_slave_dlkm swr_dmic_dlkm swr_haptics_dlkm machine_dlkm radio-i2c-rtc6226-qca mmc_core mmc_block sdhci sdhci-pltfm sdhci-msm cdsprm
-
 on init
     # Scheduler uclamp
     mkdir /dev/cpuctl/foreground
