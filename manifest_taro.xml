@@ -1,4 +1,4 @@
-<!-- Copyright (c)  2019-2020 The Linux Foundation. All rights reserved.
+<!-- Copyright (c)  2019-2021 The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -703,6 +703,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.1</version>
         <interface>
             <name>IBluetoothSar</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- AGM service-->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.AGMIPC</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAGM</name>
             <instance>default</instance>
         </interface>
     </hal>
