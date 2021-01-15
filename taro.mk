@@ -67,7 +67,7 @@ TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
 #false means using global, no override
 TARGET_USES_QMAA_OVERRIDE_RPMB	:= false
 TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
-TARGET_USES_QMAA_OVERRIDE_AUDIO   := true
+TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
 TARGET_USES_QMAA_OVERRIDE_CAMERA  := false
 TARGET_USES_QMAA_OVERRIDE_GFX     := false
@@ -232,11 +232,11 @@ TARGET_USES_AOSP_FOR_AUDIO := true
 -include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/common/default.mk
 else
 # Audio hal configuration file
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/taro/taro.mk
+-include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/lahaina/lahaina.mk
 endif
 else
 # Audio hal configuration file
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/taro/taro.mk
+-include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/lahaina/lahaina.mk
 endif
 
 TARGET_USES_QCOM_BSP := false
