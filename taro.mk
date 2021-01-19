@@ -45,7 +45,7 @@ BOARD_ABL_SIMPLE := true
 endif
 
 # Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
-SYSTEMEXT_SEPARATE_PARTITION_ENABLE = true
+SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 
 ###########
 #QMAA flags starts
