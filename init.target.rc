@@ -187,3 +187,6 @@ on property:sys.shutdown.requested=*
 #   group system wifi inet sdcard_rw media_rw diag
 #   oneshot
 
+on early-boot && property:persist.vendor.pcie.boot_option=*
+    write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
+    write /sys/bus/platform/devices/1c08000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
