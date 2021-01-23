@@ -113,7 +113,7 @@ BOARD_DO_NOT_STRIP_VENDOR_MODULES := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 video=vfb:640x400,bpp=32,memsize=3072000 androidboot.usbcontroller=a600000.dwc3 firmware_class.path=/vendor/firmware_mnt/image
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 video=vfb:640x400,bpp=32,memsize=3072000 androidboot.usbcontroller=a600000.dwc3
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x0099C000 androidboot.console=ttyMSM0 printk.devkmsg=on
 endif
