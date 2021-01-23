@@ -26,7 +26,7 @@ TARGET_USES_UEFI := true
 TARGET_USES_REMOTEPROC := true
 TARGET_NO_KERNEL := false
 
--include $(QCPATH)/common/lahaina/BoardConfigVendor.mk
+-include $(QCPATH)/common/taro/BoardConfigVendor.mk
 
 USE_OPENGL_RENDERER := true
 
