@@ -252,10 +252,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ###########
 # Kernel configurations
-#Enable llvm support for kernel
-KERNEL_LLVM_SUPPORT := true
-#Enable sd-llvm support for kernel
-KERNEL_SD_LLVM_SUPPORT := false
+TARGET_USES_KERNEL_PLATFORM := false
 
 
 ###########
