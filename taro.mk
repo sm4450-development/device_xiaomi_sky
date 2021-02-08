@@ -254,11 +254,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ###########
-# Kernel configurations
-TARGET_USES_KERNEL_PLATFORM := false
-
-
-###########
 # Target configurations
 
 QCOM_BOARD_PLATFORMS += taro

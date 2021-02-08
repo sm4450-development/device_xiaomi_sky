@@ -195,51 +195,6 @@ SOONG_CONFIG_perf += ioctl
 SOONG_CONFIG_perf_ioctl := true
 
 #-----------------------------------------------------------------
-# kernel platform specific
-#-----------------------------------------------------------------
-PREBUILT_KERNEL_DIR ?= device/qcom/$(TARGET_BOARD_PLATFORM)-kernel
-KERNEL_PRODUCT_DIR := kernel_obj
-
-################################################################################
-# Path to prebuilt dtbo.img
-ifneq (,$(wildcard $(PREBUILT_KERNEL_DIR)/dtbs/))
-BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_KERNEL_DIR)/dtbs/dtbo.img
-# Path to prebuilt .dtb's used for dtb.img generation
-BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_KERNEL_DIR)/dtbs/
-else
-BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_KERNEL_DIR)/dtbo.img
-# Path to prebuilt .dtb's used for dtb.img generation
-BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_KERNEL_DIR)/
-endif
-
-################################################################################
-# Store sanitized version of MSM headers which are needed in
-# addition to bionic headers in below path. These headers get
-# added to include path by default
-TARGET_BOARD_KERNEL_HEADERS := $(PREBUILT_KERNEL_DIR)/kernel-headers
-
-################################################################################
-PRODUCT_COPY_FILES += $(PREBUILT_KERNEL_DIR)/Image:kernel
-PRODUCT_COPY_FILES += $(PREBUILT_KERNEL_DIR)/System.map:$(KERNEL_PRODUCT_DIR)/System.map
-
-################################################################################
-# $(1): folder inside PREBUILT_KERNEL_DIR (e.g. vendor)
-# $(2): Variable to add the prebuilt KOs to (e.g. BOARD_VENDOR_KERNEL_MODULES)
-# 1. Find all the modules in the prebuilt kernel directory
-# 2. Add them to the BOARD_*_KERNEL_MODULES variable
-# 3. Also copy the files to $(PRODUCT_OUT)/dlkm/lib/modules/unstripped for ramdump tools to pick up
-define setup-kernel-modules
-$(eval $(1)_kernel_modules := $(wildcard $(PREBUILT_KERNEL_DIR)/$(1)/*.ko)) \
-$(eval BOARD_$(2)_KERNEL_MODULES += $($(1)_kernel_modules))
-endef
-
-$(call setup-kernel-modules,.,VENDOR_RAMDISK)
-$(call setup-kernel-modules,vendor_dlkm,VENDOR)
-
-PRODUCT_COPY_FILES+=$(if $(wildcard $(PREBUILT_KERNEL_DIR)/modules.blocklist),$(PREBUILT_KERNEL_DIR)/modules.blocklist:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.blocklist,)
-PRODUCT_COPY_FILES+=$(if $(wildcard $(PREBUILT_KERNEL_DIR)/vendor_dlkm/modules.blocklist),$(PREBUILT_KERNEL_DIR)/vendor_dlkm/modules.blocklist:$(if $(filter true,$(BOARD_USES_VENDOR_DLKMIMAGE)),$(TARGET_COPY_OUT_VENDOR_DLKM),$(TARGET_COPY_OUT_VENDOR))/lib/modules/modules.blocklist,)
-
-#-----------------------------------------------------------------
 # wlan specific
 #-----------------------------------------------------------------
 ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
