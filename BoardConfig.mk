@@ -28,6 +28,8 @@ TARGET_NO_KERNEL := false
 
 -include $(QCPATH)/common/taro/BoardConfigVendor.mk
 
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/waipio_tz_security_profile.xml $(QCPATH)/securemsm/security_profiles/fillmore_tz_security_profile.xml
+
 USE_OPENGL_RENDERER := true
 
 # TODO: Enable it back when we have a path forward
