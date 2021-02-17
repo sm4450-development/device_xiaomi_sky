@@ -466,6 +466,8 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/uevent
 PRODUCT_PACKAGES += vmmgr
 endif
 
+PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
