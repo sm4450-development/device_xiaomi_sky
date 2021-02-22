@@ -244,10 +244,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/BoardConfigWlan.mk
 else
-include device/qcom/wlan/lahaina/BoardConfigWlan.mk
+include device/qcom/wlan/taro/BoardConfigWlan.mk
 endif
 else
-include device/qcom/wlan/lahaina/BoardConfigWlan.mk
+include device/qcom/wlan/taro/BoardConfigWlan.mk
 endif
 endif
 
