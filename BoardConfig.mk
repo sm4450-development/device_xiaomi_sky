@@ -51,16 +51,16 @@ ifeq ($(BOARD_KERNEL_SEPARATED_DTBO),true)
 endif
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6438256640
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor vendor_dlkm odm
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor odm
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x06400000
 
 TARGET_COPY_OUT_ODM := odm
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 ifeq ($(ENABLE_AB), true)
 ifeq ($(BOARD_AVB_ENABLE),true)
-AB_OTA_PARTITIONS ?= boot vendor_boot vendor vendor_dlkm odm dtbo vbmeta
+AB_OTA_PARTITIONS ?= boot vendor_boot vendor odm dtbo vbmeta
 else
-AB_OTA_PARTITIONS ?= boot vendor_boot vendor vendor_dlkm odm dtbo
+AB_OTA_PARTITIONS ?= boot vendor_boot vendor odm dtbo
 endif
 endif
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
@@ -93,10 +93,6 @@ endif
 
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-BOARD_USES_VENDOR_DLKMIMAGE := true
-TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
-BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
