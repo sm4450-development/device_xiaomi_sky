@@ -13,6 +13,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 #Enable vm support
 TARGET_ENABLE_VM_SUPPORT := true
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # For QSSI builds, we should skip building the system image. Instead we build the
 # "non-system" images (that we support).
 
