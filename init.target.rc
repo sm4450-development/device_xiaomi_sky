@@ -32,6 +32,7 @@ import /vendor/etc/init/hw/init.qti.kernel.rc
 
 on early-init
     write /proc/sys/kernel/printk_devkmsg ratelimited
+    export MEMTAG_OPTIONS off
 
 on init
     # Scheduler uclamp
