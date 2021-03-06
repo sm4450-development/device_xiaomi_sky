@@ -800,4 +800,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>embmsslServer0</instance>
         </interface>
     </hal>
+     <!-- DpmService HAL service -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.dpmservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDpmService</name>
+            <instance>DpmService</instance>
+        </interface>
+    </hal>
 </manifest>
