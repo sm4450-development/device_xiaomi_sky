@@ -230,7 +230,6 @@ endif
 #################################################################################
 
 BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_NINJA_USES_ENV_VARS := TEMPORARY_DISABLE_PATH_RESTRICTIONS
 BUILD_BROKEN_NINJA_USES_ENV_VARS += RTIC_MPGEN
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
 
