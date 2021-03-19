@@ -135,9 +135,6 @@ endif
 
 SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
-# TODO: Remove below flag when upstream compatibility matrix
-# has support for 5.9 kernel
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Set kernel version and ion flags
 TARGET_KERNEL_VERSION := 5.10
