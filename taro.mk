@@ -15,6 +15,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 #Enable vm support
 TARGET_ENABLE_VM_SUPPORT := true
 
+# true: earlycon and console enabled
+# false: console explicitly disabled
+# <empty>: default from kernel
+TARGET_CONSOLE_ENABLED ?=
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # For QSSI builds, we should skip building the system image. Instead we build the

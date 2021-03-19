@@ -117,8 +117,17 @@ TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 video=vfb:640x400,bpp=32,memsize=3072000 androidboot.usbcontroller=a600000.dwc3
-ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
-BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x0099C000 androidboot.console=ttyMSM0 printk.devkmsg=on
+
+# TARGET_CONSOLE_ENABLED allows to override the default kernel configuration
+# true  -- override kernel configuration to enable console
+# false -- override kernel configuration to disable console
+# <blank> (default) -- use kernel default configuration
+ifeq ($(TARGET_CONSOLE_ENABLED),true)
+BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x0099C000 androidboot.console=ttyMSM0 msm_geni_serial.con_enabled=1
+else
+ifeq ($(TARGET_CONSOLE_ENABLED),false)
+BOARD_KERNEL_CMDLINE += msm_geni_serial.con_enabled=0
+endif
 endif
 
 BOARD_KERNEL_BASE        := 0x00000000
