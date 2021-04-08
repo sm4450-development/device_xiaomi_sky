@@ -39,6 +39,7 @@ else
 PRODUCT_BUILD_CACHE_IMAGE := true
 endif
 PRODUCT_BUILD_RAMDISK_IMAGE := true
+PRODUCT_BUILD_RECOVERY_IMAGE := true
 PRODUCT_BUILD_USERDATA_IMAGE := true
 
 # Also, since we're going to skip building the system image, we also skip

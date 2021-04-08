@@ -60,9 +60,9 @@ TARGET_COPY_OUT_ODM := odm
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 ifeq ($(ENABLE_AB), true)
 ifeq ($(BOARD_AVB_ENABLE),true)
-AB_OTA_PARTITIONS ?= boot vendor_boot vendor vendor_dlkm odm dtbo vbmeta
+AB_OTA_PARTITIONS ?= boot vendor_boot recovery vendor vendor_dlkm odm dtbo vbmeta
 else
-AB_OTA_PARTITIONS ?= boot vendor_boot vendor vendor_dlkm odm dtbo
+AB_OTA_PARTITIONS ?= boot vendor_boot recovery vendor vendor_dlkm odm dtbo
 endif
 endif
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
@@ -165,7 +165,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 
 #Enable PD locater/notifier
