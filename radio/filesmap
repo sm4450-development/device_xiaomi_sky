@@ -52,6 +52,7 @@ vbmeta_system.img       /dev/block/bootdevice/by-name/vbmeta_system
 multiimgoem.img         /dev/block/bootdevice/by-name/multiimgoem
 multiimgqti.img         /dev/block/bootdevice/by-name/multiimgqti
 vm-linux.img            /dev/block/bootdevice/by-name/vm-linux
+vm-bootsys.img          /dev/block/bootdevice/by-name/vm-bootsys
 
 # filename + .bak       backup partition
 

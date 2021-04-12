@@ -30,11 +30,8 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-firmware_directories /vendor/vm-system/trustedvm/boot/
-
-#Future relocation
 # Base path for all VM's
-#firmware_directories /vendor/vm-system/
+firmware_directories /vendor/vm-system/
 
 # TrustedUI VM
 external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.mdt system "/vendor/bin/vmmgr -r"

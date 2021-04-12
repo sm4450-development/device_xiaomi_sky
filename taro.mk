@@ -465,7 +465,7 @@ PRODUCT_COPY_FILES += \
 # - only for use with VM support right now
 ifeq ($(TARGET_ENABLE_VM_SUPPORT),true)
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/ueventd.rc
-PRODUCT_PACKAGES += vmmgr
+PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
 PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
