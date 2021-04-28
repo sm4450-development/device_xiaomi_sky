@@ -2,7 +2,6 @@ BUILD_BROKEN_DUP_RULES := true
 
 RELAX_USES_LIBRARY_CHECK := true
 
-ALLOW_MISSING_DEPENDENCIES := true
 TARGET_BOARD_PLATFORM := taro
 
 # Default Android A/B configuration
