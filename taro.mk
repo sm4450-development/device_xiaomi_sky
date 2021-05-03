@@ -248,10 +248,6 @@ TARGET_USES_QCOM_BSP := false
 # RRO configuration
 TARGET_USES_RRO := true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=560
-
-
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ###########
