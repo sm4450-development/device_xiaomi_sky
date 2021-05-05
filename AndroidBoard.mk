@@ -3,7 +3,6 @@ LOCAL_PATH := $(call my-dir)
 #----------------------------------------------------------------------
 # Host compiler configs
 #----------------------------------------------------------------------
-SOURCE_ROOT := $(shell pwd)
 TARGET_HOST_COMPILER_PREFIX_OVERRIDE := prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-
 TARGET_HOST_CC_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)gcc
 TARGET_HOST_CXX_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)g++
@@ -67,7 +66,7 @@ include device/qcom/vendor-common/MergeConfig.mk
 #----------------------------------------------------------------------
 ifeq ($(ADD_RADIO_FILES), true)
 radio_dir := $(LOCAL_PATH)/radio
-RADIO_FILES := $(shell cd $(radio_dir) ; ls)
+RADIO_FILES := $(notdir $(wildcard $(radio_dir)/*))
 $(foreach f, $(RADIO_FILES), \
     $(call add-radio-file,radio/$(f)))
 endif
