@@ -62,7 +62,7 @@ SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 #true means QMAA is enabled for system
 #false means QMAA is disabled for system
 
-TARGET_USES_QMAA := true
+TARGET_USES_QMAA := false
 
 #QMAA flag which is set to incorporate any generic dependencies
 #required for the boot to UI flow in a QMAA enabled target.
@@ -101,7 +101,7 @@ TARGET_USES_QMAA_OVERRIDE_MSMIRQBALANCE := true
 TARGET_USES_QMAA_OVERRIDE_VIBRATOR := true
 TARGET_USES_QMAA_OVERRIDE_DRM     := true
 TARGET_USES_QMAA_OVERRIDE_KMGK := true
-TARGET_USES_QMAA_OVERRIDE_VPP := false
+TARGET_USES_QMAA_OVERRIDE_VPP := true
 TARGET_USES_QMAA_OVERRIDE_GP := true
 TARGET_USES_QMAA_OVERRIDE_BIOMETRICS := true
 TARGET_USES_QMAA_OVERRIDE_SPCOM_UTEST := true
