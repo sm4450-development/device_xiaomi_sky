@@ -464,6 +464,12 @@ endif
 
 PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
 
+##Armv9-Tests##
+PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
+                          pac_test \
+                          mte_tests
+##Armv9-Tests##
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
