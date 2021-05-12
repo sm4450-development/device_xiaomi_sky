@@ -352,6 +352,8 @@ DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
+CLEAN_UP_JAVA_IN_VENDOR := warning
+
 #Audio DLKM
 #AUDIO_DLKM := audio_apr.ko
 #AUDIO_DLKM += audio_q6_pdr.ko
