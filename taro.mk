@@ -509,6 +509,10 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           mte_tests
 ##Armv9-Tests##
 
+# Mediaserver 64 Bit enable
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.mediaserver.64b.enable=true
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
