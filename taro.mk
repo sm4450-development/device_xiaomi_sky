@@ -140,6 +140,8 @@ PRODUCT_PROPERTY_OVERRIDES += persist.vendor.usb.config=adb
 endif
 endif
 
+CLEAN_UP_JAVA_IN_VENDOR := warning
+
 SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
 
@@ -357,8 +359,6 @@ DEVICE_MANIFEST_SKUS := taro
 DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
-
-CLEAN_UP_JAVA_IN_VENDOR := warning
 
 #Audio DLKM
 #AUDIO_DLKM := audio_apr.ko
