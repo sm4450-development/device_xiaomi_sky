@@ -10,6 +10,9 @@ ENABLE_AB ?= true
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
+# Enable debugfs restrictions
+PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
+
 #Enable vm support
 TARGET_ENABLE_VM_SUPPORT := true
 
