@@ -342,11 +342,18 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_vendor=true
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
-PRODUCT_PACKAGES += camera.device@3.2-impl
 PRODUCT_PACKAGES += camera.device@1.0-impl
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
+PRODUCT_PACKAGES += camx.device@3.5-impl
+PRODUCT_PACKAGES += camx.device@3.4-impl
+PRODUCT_PACKAGES += camx.device@3.3-impl
+PRODUCT_PACKAGES += camx.device@3.2-impl
+PRODUCT_PACKAGES += camx.provider@2.4-impl
+PRODUCT_PACKAGES += camx.provider@2.6-legacy
 # Enable binderized camera HAL
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service_64
+PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
+
+# Macro allows Camera module to use new service
+QTI_CAMERA_PROVIDER_SERVICE := true
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
