@@ -499,7 +499,6 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/uevent
 PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
-PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
 
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
