@@ -22,6 +22,7 @@ $(INSTALLED_BOOTLOADER_MODULE): $(TARGET_EMMC_BOOTLOADER) | $(ACP)
 $(BUILT_TARGET_FILES_PACKAGE): $(INSTALLED_BOOTLOADER_MODULE)
 
 droidcore: $(INSTALLED_BOOTLOADER_MODULE)
+droidcore-unbundled: $(INSTALLED_BOOTLOADER_MODULE)
 endif
 
 #----------------------------------------------------------------------
