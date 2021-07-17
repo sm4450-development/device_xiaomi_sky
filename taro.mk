@@ -514,7 +514,7 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
 ##Armv9-Tests##
 
 # Mediaserver 64 Bit enable
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES+= \
      ro.mediaserver.64b.enable=true
 
 ###################################################################################
