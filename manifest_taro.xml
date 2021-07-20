@@ -69,26 +69,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- VPP Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.vpp</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IHidlVppService</name>
-            <instance>vppService</instance>
-        </interface>
-    </hal>
-    <!-- QConfig HAL Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.qconfig</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IQConfig</name>
-            <instance>default</instance>
-        </interface>>
-    </hal>
     <!-- DSP Service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.dsp</name>
