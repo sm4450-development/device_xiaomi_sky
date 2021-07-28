@@ -357,7 +357,7 @@ PRODUCT_PACKAGES += camx.provider@2.6-legacy
 PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
 
 # Macro allows Camera module to use new service
-QTI_CAMERA_PROVIDER_SERVICE := true
+QTI_CAMERA_PROVIDER_SERVICE := 2.7
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
