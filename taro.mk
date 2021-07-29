@@ -1,8 +1,9 @@
+TARGET_BOARD_PLATFORM := taro
+TARGET_BOOTLOADER_BOARD_NAME := taro
+
 BUILD_BROKEN_DUP_RULES := true
 
 RELAX_USES_LIBRARY_CHECK := true
-
-TARGET_BOARD_PLATFORM := taro
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
