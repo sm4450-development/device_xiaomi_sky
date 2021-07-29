@@ -150,7 +150,7 @@ PRODUCT_PROPERTY_OVERRIDES += persist.vendor.usb.config=adb
 endif
 endif
 
-CLEAN_UP_JAVA_IN_VENDOR := enforcing
+CLEAN_UP_JAVA_IN_VENDOR ?= enforcing
 
 JAVA_IN_VENDOR_SOONG_WHITE_LIST :=\
 CuttlefishService\
