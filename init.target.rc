@@ -57,9 +57,6 @@ on fs && property:ro.boot.product.vendor.sku=taro
     wait /dev/block/bootdevice/by-name/spunvm
     mount vfat /dev/block/bootdevice/by-name/spunvm /mnt/vendor/spunvm rw noatime shortname=lower,uid=1000,gid=1000,dmask=007,fmask=007,context=u:object_r:vendor_spunvm_file:s0
 
-on property:ro.boot.product.vendor.sku=taro
-    setprop ro.soc.model taro
-
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
