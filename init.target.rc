@@ -63,7 +63,6 @@ on property:ro.boot.product.vendor.sku=taro
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    write /dev/ipa 1
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
