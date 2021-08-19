@@ -250,18 +250,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
 
-    <!-- radio ims -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.radio.ims</name>
-        <transport>hwbinder</transport>
-        <version>1.8</version>
-        <interface>
-            <name>IImsRadio</name>
-            <instance>imsradio0</instance>
-            <instance>imsradio1</instance>
-        </interface>
-    </hal>
-
     <!-- dpm QMI hal service -->
     <hal format="hidl">
         <name>com.qualcomm.qti.dpm.api</name>
