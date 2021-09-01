@@ -522,6 +522,9 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
 PRODUCT_VENDOR_PROPERTIES+= \
      ro.mediaserver.64b.enable=true
 
+# GPU Profiler support
+PRODUCT_VENDOR_PROPERTIES += graphics.gpu.profiler.support=true
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
