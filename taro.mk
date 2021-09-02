@@ -511,7 +511,8 @@ endif
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           pac_test \
-                          mte_tests
+                          mte_tests \
+                          dynamic_memcpy_prebuilt
 ##Armv9-Tests##
 
 # Mediaserver 64 Bit enable
