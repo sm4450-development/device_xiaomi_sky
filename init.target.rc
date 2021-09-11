@@ -150,6 +150,7 @@ on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
 
 on property:sys.shutdown.requested=*
+    write /sys/kernel/qcom_rproc/shutdown_in_progress 1
     stop vendor.per_proxy
 
 on property:vold.decrypt=trigger_restart_framework
