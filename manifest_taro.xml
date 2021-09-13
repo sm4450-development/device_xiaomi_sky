@@ -101,16 +101,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>wifidisplaysessionimagetrack</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.biometrics.face</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IBiometricsFace</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IBiometricsFace/default</fqname>
-    </hal>
     <!-- fingerprint hal: using remote service instead of Google's default service-->
     <hal format="hidl">
         <name>vendor.qti.hardware.fingerprint</name>
