@@ -1,7 +1,8 @@
-TARGET_BOARD_PLATFORM := taro
-TARGET_BOOTLOADER_BOARD_NAME := taro
+TARGET_BOARD_PLATFORM := parrot
+TARGET_BOOTLOADER_BOARD_NAME := parrot
 
 BUILD_BROKEN_DUP_RULES := true
+ALLOW_MISSING_DEPENDENCIES := true
 
 RELAX_USES_LIBRARY_CHECK := true
 
@@ -223,10 +224,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ###########
 # Target naming
-PRODUCT_NAME := taro
-PRODUCT_DEVICE := taro
+PRODUCT_NAME := parrot
+PRODUCT_DEVICE := parrot
 PRODUCT_BRAND := qti
-PRODUCT_MODEL := Taro for arm64
+PRODUCT_MODEL := parrot for arm64
 
 #----------------------------------------------------------------------
 # wlan specific
@@ -235,10 +236,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/wlan.mk
 else
-include device/qcom/wlan/taro/wlan.mk
+include device/qcom/wlan/parrot/wlan.mk
 endif
 else
-include device/qcom/wlan/taro/wlan.mk
+include device/qcom/wlan/parrot/wlan.mk
 endif
 
 #----------------------------------------------------------------------
@@ -267,7 +268,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 ###########
 # Target configurations
 
-QCOM_BOARD_PLATFORMS += taro
+QCOM_BOARD_PLATFORMS += parrot
 
 TARGET_USES_QSSI := true
 
@@ -360,16 +361,16 @@ PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
 # Macro allows Camera module to use new service
 QTI_CAMERA_PROVIDER_SERVICE := 2.7
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/parrot/framework_manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
 
 # QCV allows multiple chipsets to be supported on a single vendor.
-# Add vintf device manifests for chipsets in taro QCV family below.
+# Add vintf device manifests for chipsets in parrot QCV family below.
 TARGET_USES_QCV := true
-DEVICE_MANIFEST_SKUS := taro
-DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
+DEVICE_MANIFEST_SKUS := parrot
+DEVICE_MANIFEST_PARROT_FILES := device/qcom/parrot/manifest_parrot.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
@@ -497,7 +498,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.fuse.passthrough.enable=true
 
 PRODUCT_COPY_FILES += \
-    device/qcom/taro/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+    device/qcom/parrot/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # ODM ueventd.rc
 # - only for use with VM support right now

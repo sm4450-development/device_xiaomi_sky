@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/taro.mk
+   $(LOCAL_DIR)/parrot.mk
 
 COMMON_LUNCH_CHOICES := \
-        taro-userdebug
+        parrot-userdebug

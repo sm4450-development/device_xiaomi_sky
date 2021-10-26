@@ -7,7 +7,7 @@
 BOARD_SYSTEMSDK_VERSIONS := 31
 
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a-branchprot
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo300
@@ -25,7 +25,7 @@ TARGET_NO_KERNEL := false
 
 BOARD_RAMDISK_USE_LZ4 := true
 
--include $(QCPATH)/common/taro/BoardConfigVendor.mk
+-include $(QCPATH)/common/parrot/BoardConfigVendor.mk
 
 SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/waipio_tz_security_profile.xml $(QCPATH)/securemsm/security_profiles/fillmore_tz_security_profile.xml
 
@@ -70,9 +70,9 @@ ifeq ($(ENABLE_AB), true)
 TARGET_NO_RECOVERY := true
 # Defines for enabling A/B builds
 AB_OTA_UPDATER := true
-TARGET_RECOVERY_FSTAB := device/qcom/taro/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/parrot/recovery.fstab
 else
-TARGET_RECOVERY_FSTAB := device/qcom/taro/recovery_non_AB.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/parrot/recovery_non_AB.fstab
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 endif
@@ -219,10 +219,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/BoardConfigWlan.mk
 else
-include device/qcom/wlan/taro/BoardConfigWlan.mk
+include device/qcom/wlan/parrot/BoardConfigWlan.mk
 endif
 else
-include device/qcom/wlan/taro/BoardConfigWlan.mk
+include device/qcom/wlan/parrot/BoardConfigWlan.mk
 endif
 endif
 
