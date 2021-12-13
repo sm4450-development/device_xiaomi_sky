@@ -362,15 +362,10 @@ PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
 QTI_CAMERA_PROVIDER_SERVICE := 2.7
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/parrot/framework_manifest.xml
+DEVICE_MANIFEST_FILE := device/qcom/parrot/manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
-
-# QCV allows multiple chipsets to be supported on a single vendor.
-# Add vintf device manifests for chipsets in parrot QCV family below.
-TARGET_USES_QCV := true
-DEVICE_MANIFEST_SKUS := parrot
-DEVICE_MANIFEST_PARROT_FILES := device/qcom/parrot/manifest_parrot.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
