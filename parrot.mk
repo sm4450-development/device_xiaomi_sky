@@ -66,6 +66,8 @@ else
 BOARD_ABL_SIMPLE := true
 endif
 
+TARGET_USES_LOW_MEM_CONFIG := false
+
 # Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
 SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 
