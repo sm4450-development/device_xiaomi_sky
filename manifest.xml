@@ -602,17 +602,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
 
-    <!-- Camera AON service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.camera.aon</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAONService</name>
-            <instance>aoncameraservice</instance>
-        </interface>
-    </hal>
-
+    <!-- Camera HAL service -->
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
