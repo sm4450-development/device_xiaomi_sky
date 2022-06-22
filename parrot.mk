@@ -128,7 +128,7 @@ TARGET_USES_QMAA_OVERRIDE_SECUREMSM_TESTS := true
 TARGET_USES_QMAA_OVERRIDE_SOTER := true
 TARGET_USES_QMAA_OVERRIDE_REMOTE_EFS := true
 TARGET_USES_QMAA_OVERRIDE_TFTP := true
-TARGET_USES_QMAA_OVERRIDE_EID := true
+TARGET_USES_QMAA_OVERRIDE_EID := false
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
@@ -188,13 +188,15 @@ PRODUCT_PACKAGES += android.hardware.fastboot@1.0-impl-mock
 
 ifeq ($(ENABLE_AB),true)
 ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/default/fstab_AB_dynamic_partition.qti:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/emmc/fstab_AB_dynamic_partition.qti:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
 else
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab_noSysext.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 endif
 else
 ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab_non_AB.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/default/fstab_non_AB_dynamic_partition.qti:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/emmc/fstab_non_AB_dynamic_partition.qti:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc
 else
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab_non_AB_noSysext.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 endif
