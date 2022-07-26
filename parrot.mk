@@ -497,9 +497,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable Fuse Passthrough
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.fuse.passthrough.enable=true
 
-PRODUCT_COPY_FILES += \
-    device/qcom/parrot/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
-
 # ODM ueventd.rc
 # - only for use with VM support right now
 ifeq ($(TARGET_ENABLE_VM_SUPPORT),true)
