@@ -168,7 +168,7 @@ FDA\
 SnapdragonCamera\
 
 SHIPPING_API_LEVEL := 31
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Set kernel version and ion flags
 TARGET_KERNEL_VERSION := 5.10
@@ -497,13 +497,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable Fuse Passthrough
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.fuse.passthrough.enable=true
 
-PRODUCT_COPY_FILES += \
-    device/qcom/parrot/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
-
 # ODM ueventd.rc
 # - only for use with VM support right now
 ifeq ($(TARGET_ENABLE_VM_SUPPORT),true)
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/ueventd.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/etc/ueventd.rc
 PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
