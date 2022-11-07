@@ -380,10 +380,14 @@ PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
 QTI_CAMERA_PROVIDER_SERVICE := 2.7
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/parrot/framework_manifest.xml
-DEVICE_MANIFEST_FILE := device/qcom/parrot/manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
+
+TARGET_USES_QCV := true
+DEVICE_MANIFEST_SKUS := parrot ravelin
+DEVICE_MANIFEST_PARROT_FILES := device/qcom/parrot/manifest_parrot.xml
+DEVICE_MANIFEST_RAVELIN_FILES := device/qcom/parrot/manifest_ravelin.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
