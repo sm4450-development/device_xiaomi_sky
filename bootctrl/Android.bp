@@ -1,0 +1,18 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library {
+    name: "bootctrl.parrot",
+    defaults: ["bootctrl_hal_defaults"],
+    static_libs: ["libgptutils.parrot"],
+}
+
+cc_library_shared {
+    name: "android.hardware.boot@1.2-impl-qti",
+    stem: "android.hardware.boot@1.0-impl-1.2-qti",
+    defaults: ["android.hardware.boot@1.2-impl-qti_defaults"],
+    static_libs: ["libgptutils.parrot"],
+}
