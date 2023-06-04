@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Inherit from the proprietary version
+-include vendor/xiaomi/sky/BoardConfigVendor.mk
+
 DEVICE_PATH := device/xiaomi/sky
 
 # A/B
