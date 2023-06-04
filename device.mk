@@ -68,6 +68,11 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Properties
 include $(LOCAL_PATH)/properties/default.mk
 
+# RIL
+PRODUCT_PACKAGES += \
+    Ims \
+    QtiTelephony
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
