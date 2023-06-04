@@ -66,7 +66,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Properties
-include $(LOCAL_PATH)/properties/default.mk
+include $(DEVICE_PATH)/configs/properties/default.mk
 
 # RIL
 PRODUCT_PACKAGES += \
