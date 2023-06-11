@@ -17,7 +17,6 @@ AB_OTA_PARTITIONS += \
     dtbo \
     odm \
     product \
-    recovery \
     system \
     system_ext \
     vbmeta \
@@ -51,6 +50,7 @@ TARGET_NO_BOOTLOADER := false
 TARGET_USES_REMOTEPROC := true
 TARGET_NO_KERNEL := false
 TARGET_USES_UEFI := true
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
