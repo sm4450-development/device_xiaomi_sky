@@ -19,6 +19,10 @@ ril.subscription.types=NV,RUIM
 ro.telephony.default_network=33,33
 telephony.lteOnCdmaDevice=1
 
+# Radio VoNR Calling
+persist.radio.is_vonr_enabled_0=true
+persist.radio.is_vonr_enabled_1=true
+
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
