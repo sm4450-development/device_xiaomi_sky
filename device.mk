@@ -345,8 +345,18 @@ PRODUCT_PACKAGES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    init.recovery.qcom.rc \
-    init.recovery.usb.rc
+    charger_fw_fstab.qti \
+    fstab.default \
+    init.class_main.sh \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.target.rc \
+    ueventd.qcom.rc \
+    ueventd-odm.rc \
+    init.recovery.qcom.rc
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
