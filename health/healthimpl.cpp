@@ -27,7 +27,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define LOG_TAG "android.hardware.health@2.1-service.qti"
+#define LOG_TAG "android.hardware.health@2.1-service.sky"
 
 #include <android-base/logging.h>
 #include <health/utils.h>
