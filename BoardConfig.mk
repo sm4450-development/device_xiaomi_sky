@@ -69,9 +69,8 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Fstab
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
