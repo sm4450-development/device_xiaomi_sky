@@ -35,6 +35,7 @@
 #include <log/log.h>
 
 using ::android::hardware::health::InitHealthdConfig;
+using ::android::hardware::health::V2_0::Result;
 using ::android::hardware::health::V2_1::IHealth;
 using namespace std::literals;
 
@@ -73,10 +74,34 @@ namespace health {
 namespace V2_1 {
 namespace implementation {
 
+static constexpr int kChargeCounterMultiplier = 1000; // mAh to uAh
+static constexpr int kChargeTimeToFullMultiplier = 60; // mins to secs
+
 class HealthImpl : public Health {
  public:
   HealthImpl(std::unique_ptr<healthd_config>&& config)
     : Health(std::move(config)) {}
+
+  Return<void> getChargeCounter(Health::getChargeCounter_cb _hidl_cb) {
+    auto hidl_cb = [_hidl_cb](Result result, int32_t chargeCounter) {
+      if (result == Result::SUCCESS) {
+        chargeCounter *= kChargeCounterMultiplier;
+      }
+      _hidl_cb(result, chargeCounter);
+    };
+    this->Health::getChargeCounter(hidl_cb);
+    return Void();
+  }
+
+ protected:
+  void UpdateHealthInfo(HealthInfo* health_info) {
+    if (health_info->batteryChargeTimeToFullNowSeconds == 65535) {
+      health_info->batteryChargeTimeToFullNowSeconds = -1;
+    } else {
+      health_info->batteryChargeTimeToFullNowSeconds *= kChargeTimeToFullMultiplier;
+    }
+    health_info->legacy.legacy.batteryChargeCounter *= kChargeCounterMultiplier;
+  }
 };
 
 }  // namespace implementation
@@ -84,7 +109,6 @@ class HealthImpl : public Health {
 }  // namespace health
 }  // namespace hardware
 }  // namespace android
-
 
 extern "C" IHealth* HIDL_FETCH_IHealth(const char* instance) {
     using ::android::hardware::health::V2_1::implementation::HealthImpl;
