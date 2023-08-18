@@ -1,0 +1,109 @@
+# Copyright (C) 2021 The Android Open Source Project
+#           (C) 2022-2023 Paranoid Android
+#
+# SPDX-License-Identifier: Apache-2.0
+
+on early-boot
+    # SSR Setup
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys7/restart_level RELATED
+
+on early-init
+    start vendor.audioadsprpcd_audiopd
+
+on boot
+    # Modem
+    chmod 0777 /dev/smd8
+    chown radio radio /dev/smd8
+    mkdir /data/vendor/modem 0777 radio radio
+
+    # Fingerprint
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+    chmod 0664 /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
+    chown system graphics /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
+
+
+    # Ir
+    chown system system /dev/ir_spi
+    chmod 0666 /dev/ir_spi
+
+    # Pocket sensor
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chmod 0664 /sys/class/touch/touch_dev/palm_sensor
+
+    # Hide permissive selinux
+    chmod 0640 /sys/fs/selinux/enforce
+    chmod 0440 /sys/fs/selinux/policy
+
+on post-fs
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown system system /sys/class/display/backlight_clone/brightness_clone
+    chmod 0664 /sys/class/display/backlight_clone/brightness_clone   
+
+on post-fs-data
+    # Camera
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+    mkdir /data/vendor/camera 0777 camera camera
+    mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
+    chmod 0666 /dev/camlog
+
+    # Fingerprint
+    mkdir /data/vendor/fpc 0770 system system
+    mkdir /data/vendor/fpdump 0770 system system
+    mkdir /data/vendor/goodix 0770 system system
+    mkdir /mnt/vendor/persist/fpc 0770 system system
+    mkdir /mnt/vendor/persist/goodix 0770 system system
+
+    # qrtr-lookup
+    mkdir /data/vendor/qrtr 0775 system system
+
+service mi_thermald /vendor/bin/mi_thermald
+    class main
+    user root
+    group system
+    override
+
+service qrtr-lookup /vendor/bin/qrtr-lookup
+    class core
+    user system
+    group system
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start qrtr-lookup
+
+service nqnfc_2_0_hal_service /vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
+    class early_hal
+    user nfc
+    group nfc
+    override
+    disabled
+
+service secureelement-hal_1_2 /vendor/bin/hw/vendor.qti.secure_element@1.2-service
+    class early_hal
+    user system
+    group system
+    override
+    disabled
+
+service qti_esepowermanager_service_1_1 /vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
+    class early_hal
+    user system
+    group nfc system
+    override
+    disabled
+
+# Do not enable NFC on skyin
+on property:ro.boot.product.hardware.sku=sky
+    enable nqnfc_2_0_hal_service
+    enable secureelement-hal_1_2
+    enable qti_esepowermanager_service_1_1
