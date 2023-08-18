@@ -1,0 +1,25 @@
+# Camera
+vendor.camera.                                        u:object_r:vendor_camera_prop:s0
+persist.camera.                                       u:object_r:vendor_camera_prop:s0
+ro.boot.camera.                                       u:object_r:vendor_camera_prop:s0
+
+# Display
+ro.vendor.display.dither                              u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.display.mi_calib.enable                     u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.histogram.enable                            u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.sre.enable                                  u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.xiaomi.bl.poll                              u:object_r:vendor_displayfeature_prop:s0
+init.svc.vendor.displayfeature-hal-1-0                u:object_r:vendor_displayfeature_prop:s0
+
+# Fingerprint
+persist.vendor.sys.fp.                                u:object_r:vendor_fp_prop:s0
+ro.hardware.fp.                                       u:object_r:vendor_fp_prop:s0
+vendor.fps_hal.                                       u:object_r:vendor_fp_prop:s0
+vendor.sys.fp                                         u:object_r:vendor_fp_prop:s0
+
+# Mlipay
+persist.vendor.sys.pay.                               u:object_r:vendor_mlipay_prop:s0
+persist.vendor.sys.provision.status                   u:object_r:vendor_mlipay_prop:s0
+
+# Thermal
+vendor.sys.thermal.                                   u:object_r:vendor_thermal_prop:s0
