@@ -267,6 +267,21 @@ NEED_AIDL_NDK_PLATFORM_BACKEND := true
 # NFC
 TARGET_NFC_SKU := sky
 
+# Overlays
+PRODUCT_PACKAGES += \
+    AOSPASkyFrameworksOverlay \
+    AOSPASkySystemUIOverlay \
+    SkyCarrierConfigOverlay \
+    SkyFrameworksOverlay \
+    SkyGLSettingsProviderOverlay \
+    SkyGLWifiOverlay \
+    SkyINSettingsProviderOverlay \
+    SkyINWifiOverlay \
+    SkySettingsOverlay \
+    SkySystemUIOverlay \
+    SkyWifiOverlay \
+    NoCutoutOverlay
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
