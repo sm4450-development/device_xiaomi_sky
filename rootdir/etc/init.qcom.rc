@@ -1,0 +1,5 @@
+on property:persist.sys.topaz.dt2w=0
+    exec /system/bin/sendevent /dev/input/event5 0 1 4
+
+on property:persist.sys.topaz.dt2w=1
+    exec /system/bin/sendevent /dev/input/event5 0 1 5
