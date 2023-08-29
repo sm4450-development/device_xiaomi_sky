@@ -163,6 +163,10 @@ PRODUCT_PROPERTY_OVERRIDES  += \
            dalvik.vm.heapminfree=512k \
            dalvik.vm.heapmaxfree=8m
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
