@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_usb_regexs instead. -->
+    <string-array name="config_tether_usb_regexs" translatable="false">
+        <item>usb\\d</item>
+        <item>rndis\\d</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_wifi_regexs instead. -->
+    <string-array name="config_tether_wifi_regexs" translatable="false">
+        <item>softap0</item>
+        <item>wlan0</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_tether_bluetooth_regexs instead. -->
+    <string-array name="config_tether_bluetooth_regexs" translatable="false">
+        <item>bnep\\d</item>
+        <item>bt-pan</item>
+    </string-array>
+
+    <!-- This setting is deprecated, please use
+         com.android.networkstack.tethering.R.array.config_dhcp_range instead. -->
+
+</resources>

@@ -1,4 +1,0 @@
-runtime_resource_overlay {
-    name: "SettingsOverlayGlobal",
-    product_specific: true,
-}

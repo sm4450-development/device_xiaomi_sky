@@ -7,12 +7,12 @@ persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 
 # DPM
-persist.vendor.dpm.feature=11
+persist.vendor.dpm.feature=1
 
 # RIL
-ro.telephony.sim_slots.count=2
+ro.telephony.sim_slots.count=1
 telephony.active_modems.max_count=2
 
 # Media
-media.settings.xml=/vendor/etc/media_profiles_ukee.xml
+media.settings.xml=/vendor/etc/media_profiles_ravelin.xml
 media.stagefright.thumbnail.prefer_hw_codecs=true

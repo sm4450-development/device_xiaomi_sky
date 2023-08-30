@@ -1,0 +1,3 @@
+runtime_resource_overlay {
+    name: "AospWifiResOverlay",
+}

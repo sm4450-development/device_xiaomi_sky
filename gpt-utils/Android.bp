@@ -29,7 +29,7 @@ ufsbsg_cc_defaults {
 }
 
 cc_library {
-    name: "libgptutils.taro",
+    name: "libgptutils.parrot",
     vendor: true,
     recovery_available: true,
     defaults: ["ufsbsg_defaults"],

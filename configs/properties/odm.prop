@@ -1,2 +1,6 @@
+# Audio
+ro.vendor.audio.karaoke.enable=true
+ro.vendor.audio.camera.loopback.support=false
+
 # Qti
 ro.vendor.qti.va_odm.support=1

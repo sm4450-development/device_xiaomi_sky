@@ -44,8 +44,6 @@ subsystem mem_buf_vm
 /dev/diag                 0660   system     oem_2901
 /dev/mhi_*_pipe_4         0660   system     system
 
-/dev/xlog                 0660   system     audio
-
 /dev/genlock              0666   system     system
 /dev/wlan                 0660   wifi       wifi
 /dev/kgsl                 0666   system     system
@@ -381,9 +379,6 @@ subsystem mem_buf_vm
 # Kmsg device
 /dev/kmsg                                               0620   root       system
 
-#KGSL
-/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
-
 # LED class devices
 /sys/class/leds/red      delay_on     0640    system    system
 /sys/class/leds/red      delay_off    0640    system    system
@@ -510,10 +505,3 @@ subsystem mem_buf_vm
 
 # devcoredump data attributes
 /sys/class/devcoredump/devcd*                           data                            0600    system  system
-
-# Battery
-/sys/class/qcom-battery                                 input_suspend                   0660    system  system
-
-# Fingerprint
-/dev/goodix_fp                                                         0666   system     system
-/sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown            0664   system     graphics

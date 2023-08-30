@@ -429,68 +429,23 @@ esac
 #
 # Make modem config folder and copy firmware config to that folder for RIL
 #
-
-# wait for mbnota process finished, Max wait time 0.5 * 20 seconds
-
-retry_time=0
-while [ "$retry_time" -lt 20 ]
-do
-    log -p i -t "init.qcom.sh" "retry_time is $retry_time"
-    MBNOTAPID=`getprop init.svc.vendor.mbnota`
-    log -p i -t "init.qcom.sh" "MBNOTAPID is $MBNOTAPID"
-    if [ "$MBNOTAPID" == "running" ]; then
-        log -p i -t "init.qcom.sh" "process is exist"
-        let retry_time++
-        sleep 0.5
-        continue
-    else
-        log -p i -t "init.qcom.sh" "process is not exist"
-        break
-    fi
-done
-
-
-if [ -f /data/vendor/mbnconfig/image/modem_pr/mcfg/configs/mbn_build_utc.txt ]; then
-    # for mbnota design
-    if [ -f /data/vendor/modem_config/mbn_build_utc.txt ]; then
-        prev_version_info=`cat /data/vendor/modem_config/mbn_build_utc.txt`
-    else
-        prev_version_info=""
-    fi
-
-    cur_version_info=`cat /data/vendor/mbnconfig/image/modem_pr/mcfg/configs/mbn_build_utc.txt`
-    if [ "$prev_version_info" != "$cur_version_info" ]; then
-        # add W for group recursively before delete
-        chmod g+w -R /data/vendor/modem_config/*
-        rm -rf /data/vendor/modem_config/*
-        # preserve the read only mode for all subdir and files
-        log -p i -t "init.qcom.sh" "copy start"
-        cp --preserve=m -dr /data/vendor/mbnconfig/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
-        cp --preserve=m -d /data/vendor/mbnconfig/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
-        # the group must be root, otherwise this script could not add "W" for group recursively
-        chown -hR radio.root /data/vendor/modem_config/*
-        log -p i -t "init.qcom.sh" "copy end"
-    fi
+if [ -f /data/vendor/modem_config/ver_info.txt ]; then
+    prev_version_info=`cat /data/vendor/modem_config/ver_info.txt`
 else
-    # for legacy design
-    if [ -f /data/vendor/modem_config/ver_info.txt ]; then
-        prev_version_info=`cat /data/vendor/modem_config/ver_info.txt`
-    else
-        prev_version_info=""
-    fi
+    prev_version_info=""
+fi
 
-    cur_version_info=`cat /vendor/firmware_mnt/verinfo/ver_info.txt`
-    if [ ! -f /vendor/firmware_mnt/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
-        # add W for group recursively before delete
-        chmod g+w -R /data/vendor/modem_config/*
-        rm -rf /data/vendor/modem_config/*
-        # preserve the read only mode for all subdir and files
-        cp --preserve=m -dr /vendor/firmware_mnt/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
-        cp --preserve=m -d /vendor/firmware_mnt/verinfo/ver_info.txt /data/vendor/modem_config/
-        cp --preserve=m -d /vendor/firmware_mnt/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
-        # the group must be root, otherwise this script could not add "W" for group recursively
-        chown -hR radio.root /data/vendor/modem_config/*
-    fi
+cur_version_info=`cat /vendor/firmware_mnt/verinfo/ver_info.txt`
+if [ ! -f /vendor/firmware_mnt/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
+    # add W for group recursively before delete
+    chmod g+w -R /data/vendor/modem_config/*
+    rm -rf /data/vendor/modem_config/*
+    # preserve the read only mode for all subdir and files
+    cp --preserve=m -dr /vendor/firmware_mnt/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
+    cp --preserve=m -d /vendor/firmware_mnt/verinfo/ver_info.txt /data/vendor/modem_config/
+    cp --preserve=m -d /vendor/firmware_mnt/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
+    # the group must be root, otherwise this script could not add "W" for group recursively
+    chown -hR radio.root /data/vendor/modem_config/*
 fi
 chmod g-w /data/vendor/modem_config
 setprop ro.vendor.ril.mbn_copy_completed 1
@@ -508,21 +463,3 @@ case "$buildvariant" in
         echo "4 4 1 4" > /proc/sys/kernel/printk
         ;;
 esac
-
-#modify permission of block_size node
-chown -h root.oem_2902 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/block_size
-chmod 660 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/block_size
-chown -h root.oem_2902 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/mem_type
-chmod 660 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/mem_type
-chown -h root.oem_2902 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/mem_size
-chmod 660 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/mem_size
-chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-
-chown -h root.oem_2902 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/block_size
-chmod 660 /sys/devices/platform/soc/6048000.tmc/coresight-tmc-etr/block_size
-mkdir /config/stp-policy/coresight-stm:p_ost.policy
-chmod 660 /config/stp-policy/coresight-stm:p_ost.policy
-mkdir /config/stp-policy/coresight-stm:p_ost.policy/default
-chmod 660 /config/stp-policy/coresight-stm:p_ost.policy/default
-echo 0x10 > /sys/bus/coresight/devices/coresight-stm/traceid

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_defaultPeakRefreshRate">90</integer>
+    <integer name="config_defaultRefreshRate">0</integer>
+    <integer name="config_default_cellular_usage_setting">-1</integer>
+    <integer name="config_multiuserMaximumUsers">4</integer>
+    <integer name="config_safe_media_volume_index">100</integer>
+    <integer name="config_screenBrightnessDoze">17</integer>
+</resources>

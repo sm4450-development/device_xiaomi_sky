@@ -1,0 +1,34 @@
+on early-init
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
+
+on boot
+    # DT2W
+    chown system system /dev/xiaomi-touch
+    chmod 0660 /dev/xiaomi-touch
+
+    # Fingerprint
+    chown system system /sys/bus/platform/devices/soc:fpc1020/irq
+    chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
+    chown system system /sys/bus/platform/devices/soc:fpc1020/modalias
+    chown system system /sys/bus/platform/devices/soc:fpc1020/compatible_all
+    chmod 0660 /sys/bus/platform/devices/soc:fpc1020/irq
+    chmod 0660 /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
+    chmod 0660 /sys/bus/platform/devices/soc:fpc1020/modalias
+    chmod 0660 /sys/bus/platform/devices/soc:fpc1020/compatible_all
+
+    chmod 0777 /dev/goodix_fp
+
+    # Pocket sensor
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chmod 0664 /sys/class/touch/touch_dev/palm_sensor
+
+on post-fs
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+
+on post-fs-data
+    mkdir /data/vendor/fpc 0777 system system
+    mkdir /data/vendor/goodix 0777 system system
+
+on property:vendor.fps_hal.restartimes=max
+	stop vendor.fps_hal_lc

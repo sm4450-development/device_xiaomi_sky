@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="config_wifiBridgedSoftApSupported">false</bool>
+    <bool name="config_wifiDriverSupportedNl80211RegChangedEvent">true</bool>
+    <bool name="config_wifiEnablePartialInitialScan">true</bool>
+    <bool name="config_wifiSaeH2eSupported">true</bool>
+    <bool name="config_wifiSoftapHeMuBeamformerSupported">true</bool>
+    <bool name="config_wifiSoftapHeSuBeamformeeSupported">true</bool>
+    <bool name="config_wifiSoftapHeSuBeamformerSupported">true</bool>
+    <bool name="config_wifiSoftapIeee80211axSupported">true</bool>
+</resources>

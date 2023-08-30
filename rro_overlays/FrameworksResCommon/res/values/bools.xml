@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2023 The LineageOS Project
-     SPDX-License-Identifier: Apache-2.0
--->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
+    <bool name="config_automatic_brightness_available">true</bool>
     <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+    <bool name="config_camera_sound_forced">true</bool>
+    <bool name="config_carrier_volte_available">true</bool>
+    <bool name="config_cellBroadcastAppLinks">true</bool>
+    <bool name="config_device_volte_available">true</bool>
+    <bool name="config_device_vt_available">true</bool>
+    <bool name="config_device_wfc_ims_available">true</bool>
     <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_enableMultiUserUI">true</bool>
+    <bool name="config_enable_iwlan_handover_policy">false</bool>
+    <bool name="config_enhanced_iwlan_handover_check">false</bool>
+    <bool name="config_hotswapCapable">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+    <bool name="config_showNavigationBar">true</bool>
+    <bool name="config_sms_decode_gsm_8bit_data">true</bool>
+    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+    <bool name="config_stkNoAlphaUsrCnf">false</bool>
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
+    <bool name="config_supportDoubleTapWake">true</bool>
+    <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
+    <bool name="config_telephony5gNonStandalone">true</bool>
+    <bool name="config_telephony5gStandalone">true</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+    <bool name="config_voice_data_sms_auto_fallback">true</bool>
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
     <bool name="config_wifi_background_scan_support">true</bool>
     <bool name="config_wifi_batched_scan_supported">true</bool>
     <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
     <bool name="config_wifi_dual_band_support">true</bool>
-    <bool name="config_wifi_dual_sap_mode_enabled">true</bool>
+    <bool name="config_wifi_dual_sap_mode_enabled">false</bool>
     <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
     <bool name="config_wifi_softap_acs_supported">true</bool>
     <bool name="config_wifi_softap_ieee80211ac_supported">true</bool>
+    <bool name="skip_restoring_network_selection">true</bool>
 </resources>

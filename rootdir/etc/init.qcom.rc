@@ -25,8 +25,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
+import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.qcom.factory.rc
 
 on early-init
     mount tracefs tracefs /sys/kernel/tracing
@@ -73,7 +76,6 @@ on early-boot
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qti.can.sh
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
-    setprop vendor.display.mixer_resolution ${persist.sys.miui_resolution}
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
@@ -120,11 +122,6 @@ on boot
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
     chown media audio /sys/kernel/snd_card/card_state
 
-    # modem
-    chmod 0777 /dev/smd8
-    chown radio radio /dev/smd8
-    mkdir /data/vendor/modem 0777 radio radio
-
     # This location is used by QCRIL to host UNIX domain
     # socket files used for internal IPC within QCRIL
     # modules
@@ -135,19 +132,113 @@ on boot
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
     mkdir /persist/misc 0770 system system
     mkdir /persist/alarm 0770 system system
+    mkdir /mnt/vendor/persist/time 0770 system system
+    mkdir /mnt/vendor/persist/secnvm 0770 system system
+    mkdir /mnt/vendor/persist/iar_db 0770 system system
+    mkdir /mnt/vendor/spunvm 0770 system system
+
+    restorecon_recursive /mnt/vendor/persist
+    chown system system /mnt/vendor/persist
+    chmod 0777 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/camera
+    chown system system /mnt/vendor/persist/camera
+    chmod 0777 /mnt/vendor/persist/camera
+    mkdir /data/vendor/camera
+    chown system system /data/vendor/camera
+    chmod 0777 /data/vendor/camera
+    chmod 0666 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
+    chmod 0666 /mnt/vendor/persist/camera/rear_dc_cal_wu.bin
+    chmod 0666 /data/vendor/camera/com.xiaomi.dcal.wd.data
+    chmod 0666 /data/vendor/camera/com.xiaomi.dcal.wu.data
+    chown system system /data/vendor/camera/com.xiaomi.dcal.wd.data
+    chown system system /data/vendor/camera/com.xiaomi.dcal.wu.data
+
+    #Create WIGIG socket area
+    mkdir /dev/socket/wigig 0770 wifi wifi
+
+    setprop wifi.interface wlan0
+
+    setprop ro.telephony.call_ring.multiple false
+
+    #Remove SUID bit for iproute2 ip tool
+    chmod 0755 /system/bin/ip
+
+
+    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
+
+    setprop net.tcp.2g_init_rwnd 10
+
+    # To prevent out of order acknowledgements from making
+    # connection tracking to treat them as not belonging to
+    # the connection they belong to.
+    # Otherwise, a weird issue happens in which some long
+    # connections on high-throughput links get dropped when
+    # an ack packet comes out of order
+    write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
+
+    # Allow access for CCID command/response timeout configuration
+    chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
+
+    # bond0 used by FST Manager
+    chown wifi wifi /sys/class/net/bond0/bonding/queue_id
+
+    # Allow access to dload sysfs node
+    chown root system /sys/kernel/dload/emmc_dload
+    chmod 0660 /sys/kernel/dload/emmc_dload
+    chown root system /dev/block/bootdevice/by-name/ramdump
+    chmod 0660 /dev/block/bootdevice/by-name/ramdump
+    chown root system /sys/kernel/dload/dload_mode
+    chmod 0660 /sys/kernel/dload/dload_mode
+
+    chown root graphics /sys/module/msm_drm/parameters/dsi_display0
+    chmod 0640 /sys/module/msm_drm/parameters/dsi_display0
+    chown root graphics /sys/module/msm_drm/parameters/dsi_display1
+    chmod 0640 /sys/module/msm_drm/parameters/dsi_display1
+
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/brightness_clone
+    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown system system /sys/class/backlight/panel1-backlight/brightness
+    chown system system /sys/class/backlight/panel1-backlight/max_brightness
+
+    chmod 0664 /sys/class/display/backlight_clone/brightness_clone
+    chown system system /sys/class/display/backlight_clone/brightness_clone
+
+    chmod 0644 /sys/class/display/disp_param/panel_info
+    chown system system /sys/class/display/disp_param/panel_info
+    chmod 0664 /sys/class/display/disp_param/disp_param
+    chown system system /sys/class/display/disp_param/disp_param
+
+    # Allow access to sensors device attributes
+    chown system system /sys/class/sensors/MPU6050-accel/enable
+    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
+    chown system system /sys/class/sensors/MPU6050-gyro/enable
+    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
+    chown system system /sys/class/sensors/apds9930-light/enable
+    chown system system /sys/class/sensors/apds9930-light/poll_delay
+    chown system system /sys/class/sensors/apds9930-proximity/enable
+    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
+
+    #Add for ir
+    chown system system /dev/ir_spi
+    chmod 0666 /dev/ir_spi
+
+    # Create directory used for display
+    # for backward compatibility
+    mkdir /persist/display 0770 system graphics
+    mkdir /mnt/vendor/persist/display 0770 system graphics
+
+    # Create vpp directory
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
+    #Make MTU adjusting
+    write /proc/sys/net/ipv4/tcp_mtu_probing 2
 
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
-	
-    #modify permission of block_size node
-    #chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -175,9 +266,7 @@ on post-fs-data
     mkdir /data/vendor/qtee 0770 system system
 
     #Create folder of camera
-    mkdir /data/vendor/camera 0777 camera camera
-    mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
-    chmod 0666 /dev/camlog
+    mkdir /data/vendor/camera 0770 camera camera
 
 
     #Create directory for tftp
@@ -188,6 +277,28 @@ on post-fs-data
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
     mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
 
+    #Create the directories used by the subsystem_ramdump
+    mkdir /data/vendor/bsplog 0771 root system
+    mkdir /data/vendor/bsplog/modem 0771 root system
+    mkdir /data/vendor/bsplog/modem/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/camera 0771 root system
+    mkdir /data/vendor/bsplog/camera/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/audio 0771 root system
+    mkdir /data/vendor/bsplog/audio/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/sensor 0771 root system
+    mkdir /data/vendor/bsplog/sensor/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/secure 0771 root system
+    mkdir /data/vendor/bsplog/secure/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/wlan 0771 root system
+    mkdir /data/vendor/bsplog/wlan/ssr_dump 0771 root system
+    mkdir /data/vendor/bsplog/other 0771 root system
+    mkdir /data/vendor/bsplog/other/ssr_dump 0771 root system
+
+    #enabled modem/adsp/cdsp coredump
+    write sys/class/remoteproc/remoteproc2/coredump  enabled
+    write sys/class/remoteproc/remoteproc1/coredump  enabled
+    write sys/class/remoteproc/remoteproc0/coredump  enabled
+
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi
     mkdir /data/vendor/wifi/sockets 0770 wifi wifi
@@ -197,7 +308,7 @@ on post-fs-data
     mkdir /data/vendor/wifi/wigig_hostapd 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-    mkdir /data/vendor/mac_addr 0770 system wifi
+    mkdir /data/vendor/wlan_logs 0770 system wifi
 
     # Create the directories used by WiGig Sensing
     mkdir /data/vendor/sensing 0770 system wifi
@@ -207,7 +318,7 @@ on post-fs-data
     chown radio radio /data/vendor/connectivity
 
     # Create directory used by audio subsystem
-    mkdir /data/vendor/audio 0777 audio audio
+    mkdir /data/vendor/audio 0770 audio audio
 
     # Create directory for audio delta files
     mkdir /data/vendor/audio/acdbdata 0770 media audio
@@ -312,9 +423,6 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
-    # Create the directory used by qrtr-lookup
-    mkdir /data/vendor/qrtr 0775 system system
-
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -344,12 +452,10 @@ service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
     disabled
 
-service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
+service vendor.ss_ramdump /vendor/bin/subsystem_ramdump 3
     class main
     user system
-    group system root media_rw everybody
-    capabilities NET_ADMIN
-    group system
+    group system everybody root sdcard_rw
     ioprio rt 4
     disabled
 
@@ -377,18 +483,17 @@ on property:persist.sys.modem_auth_timeout=*
 on property:persist.sys.pil_proxy_timeout=*
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
 
+    # wcnssr enable
+    write /sys/class/remoteproc/remoteproc2/recovery enabled
+    #write /sys/bus/msm_subsys/devices/subsys2/restart_level related
+
 on property:persist.vendor.ssr.restart_level=*
-    write /sys/class/remoteproc/remoteproc4/recovery enabled
     start vendor.ssr_setup
 
 on property:persist.vendor.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     write /sys/module/qcom_ramdump/parameters/enable_dump_collection 1
-    write /sys/class/remoteproc/remoteproc4/coredump enabled
-    write /sys/class/remoteproc/remoteproc3/coredump enabled
-    write /sys/class/remoteproc/remoteproc2/coredump enabled
     mkdir /data/vendor/ramdump_ssr 770 system system
-    #setprop persist.vendor.ssr.restart_level ALL_ENABLE
     start vendor.ss_ramdump
 
 on property:persist.vendor.ssr.enable_ramdumps=0
@@ -419,6 +524,8 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
+    chmod 0777 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    chmod 0777 /dev/byte-cntr
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -494,6 +601,7 @@ service vendor.move_wifi_data /system/bin/move_wifi_data.sh
     oneshot
 
 service wigignpt /vendor/bin/wigignpt
+    interface vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner default
     class hal
     socket wigig/wigignpt stream 660 system wifi
     user system
@@ -551,6 +659,49 @@ service iprenew_wigig0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
+#ExtR HONGMI-163930 yangziqiang 20230302 add for capture wifi full log start
+service vendor.tcpdump /vendor/bin/tcpdump -i any -W 2 -C 2 -s 134 -w /data/vendor/wlan_logs/tcpdump.pcap
+    class main
+    user root
+    group root wifi
+    disabled
+    oneshot
+
+service sniffer /vendor/bin/tcpdump -i wlan0 -w /data/vendor/wlan_logs/sniffer.pcap
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:persist.vendor.tcpdump.enable=false
+    stop vendor.tcpdump
+
+on property:persist.vendor.tcpdump.enable=true
+   start vendor.tcpdump
+
+#on property:sys.user.0.ce_available=false
+#    stop vendor.tcpdump
+
+#on property:sys.user.0.ce_available=true
+#    start vendor.tcpdump
+
+service startpktlog /vendor/bin/iwpriv wlan0 pktlog 2
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+service stoppktlog /vendor/bin/iwpriv wlan0 pktlog 0
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+#ExtR HONGMI-163930 yangziqiang 20230302 add for capture wifi full log start
+
 service ptt_socket_app /system/vendor/bin/ptt_socket_app -d
     class main
     user wifi
@@ -583,9 +734,6 @@ service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
 on property:sys.shutdown.requested=*
     write /sys/kernel/shutdown_wlan/shutdown 1
     stop cnss-daemon
-
-on property:persist.sys.miui_resolution=*
-    setprop vendor.display.mixer_resolution ${persist.sys.miui_resolution}
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     class late_start
@@ -648,9 +796,7 @@ service wifi-crda /vendor/bin/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-    setprop vendor.post_boot.parsed 1
     start qti-testscripts
-    start qrtr-lookup
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
@@ -703,7 +849,6 @@ service charger /system/bin/charger
     user system
     group system graphics input
     capabilities SYS_BOOT
-    seclabel u:r:charger:s0
 
 service vendor.ssr_diag /system/vendor/bin/ssr_diag
     class late_start
@@ -711,53 +856,19 @@ service vendor.ssr_diag /system/vendor/bin/ssr_diag
     group system
     disabled
 
-service diag_mdlog_start /vendor/bin/diag_mdlog -q 0x2006 -j 1 -u -c -i -n 20 -s 300
+service diag_mdlog_start /system/vendor/bin/diag_mdlog -q 0x2 -u -c -n 50
     class late_start
     user shell
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
+    group system oem_2901 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
-service diag_mdlog_stop /vendor/bin/diag_mdlog -k
+service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     class late_start
     user shell
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
+    group system oem_2901 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
-
-service diag_mdlog_auto_start /vendor/bin/diag_mdlog -q 0x2006 -j 1 -u -c -i -n 50
-    class late_start
-    user system
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service diag_mdlog_auto_stop /vendor/bin/diag_mdlog -k
-    class late_start
-    user system
-    group system oem_2902 oem_2905 sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-on property:persist.vendor.radio.diag_log_trriger=modem
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_auto_start
-
-on property:persist.vendor.radio.diag_log_trriger=audio
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_auto_start
-
-on property:persist.vendor.radio.diag_log_trriger=gps
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_auto_start
-
-on property:persist.vendor.radio.diag_log_trriger=sensor
-    setprop debug.offline_log.enable true
-    setprop debug.offline_log.module ${persist.vendor.radio.diag_log_trriger}
-    start diag_mdlog_auto_start
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
@@ -820,8 +931,6 @@ service esepmdaemon /system/vendor/bin/esepmdaemon
 on charger
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel1-backlight/brightness
 
 #add poweroffhandler
 service poweroffhandler /system/vendor/bin/poweroffhandler
@@ -884,28 +993,6 @@ on property:vendor.gpu.available_frequencies=*
 on property:sys.boot_completed=1 && property:ro.product.debugfs_restrictions.enabled=true && \
    property:persist.dbg.keep_debugfs_mounted="" && property:ro.debuggable="1"
    setprop persist.dbg.keep_debugfs_mounted 1
-
 on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.debuggable="1"
    mount debugfs debugfs /sys/kernel/debug
    chmod 0755 /sys/kernel/debug
-
-    # cooling device used to set 4Rx or 2Rx
-    chmod 0666 /sys/class/thermal/cooling_device39/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device40/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device41/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device42/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device43/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device44/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device45/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device46/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device47/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device48/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device49/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device50/cur_state
-
-service qrtr-lookup /vendor/bin/qrtr-lookup
-    class core
-    user system
-    group system
-    disabled
-    oneshot
