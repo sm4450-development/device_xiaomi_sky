@@ -5,16 +5,17 @@ allow hal_fingerprint_default {
   input_device
   tee_device
   uhid_device
+  vendor_fingerprint_device
+  vendor_dmabuf_qseecom_heap_device
+  vendor_dmabuf_qseecom_ta_heap_device
 }: chr_file rw_file_perms;
-
-r_dir_file(hal_fingerprint_default, vendor_sysfs_fingerprint)
-allow hal_fingerprint_default vendor_sysfs_fingerprint:file rw_file_perms;
 
 allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 
 allow hal_fingerprint_default {
   input_device
   vendor_sysfs_graphics
+  vendor_sysfs_fingerprint
 }: dir r_dir_perms;
 
 allow hal_fingerprint_default {
