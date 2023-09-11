@@ -1,0 +1,4 @@
+get_prop(vendor_hal_gnss_qti, vendor_sensors_prop)
+
+r_dir_file(vendor_hal_gnss_qti, vendor_persist_sensors_file)
+allow vendor_hal_gnss_qti mnt_vendor_file:dir r_dir_perms;
