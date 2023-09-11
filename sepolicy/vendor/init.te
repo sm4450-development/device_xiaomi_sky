@@ -1,2 +1,0 @@
-allow init adsprpcd_file:file mounton;
-allow init vendor_sysfs_graphics:file mounton;
