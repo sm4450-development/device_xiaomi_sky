@@ -19,4 +19,5 @@
 
 ## Device Picture (Redmi 12 5G)
 
-![r125g](https://github.com/prateekmaru/device_xiaomi_sky/assets/47496067/90825fb6-df79-4c8b-a520-51e8f8d1c241)
+![r125g_trans](https://github.com/prateekmaru/device_xiaomi_sky/assets/47496067/c3eb6314-3224-467f-92be-3674d9658370)
+
