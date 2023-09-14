@@ -1,4 +1,4 @@
-# Device Tree for Xiaomi Redmi Note 12R/Redmi 12 5G/POCO M6 Pro 5G (Sky | Skyin)[](https://github.com/raphael-devs/android_device_xiaomi_raphael/blob/lineage-18.0/README.md#spec-sheet)
+# Device Tree for Xiaomi Redmi Note 12R/Redmi 12 5G/POCO M6 Pro 5G (Sky | Skyin)[](https://github.com/sm4450-development/device_xiaomi_sky/README.md#spec-sheet)
 
 ## Spec Sheet
 
