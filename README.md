@@ -18,4 +18,5 @@
 | Release Date | 2023, August 01 (Global) |
 
 ## Device Picture (Redmi 12 5G)
-![r125g](https://github.com/prateekmaru/device_xiaomi_sky/assets/47496067/e0703ffb-66a3-4d46-821a-dc62e00b12ec)
+
+![r125g](https://github.com/prateekmaru/device_xiaomi_sky/assets/47496067/90825fb6-df79-4c8b-a520-51e8f8d1c241)
