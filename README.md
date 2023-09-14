@@ -5,7 +5,7 @@
 | Feature | Specification |
 | :--- | :--- |
 | CPU | Octa-core<br>2X Cortex A78@ 2.2GHz<br>6X Cortex A55@ 2.0GHz |
-| Chipset | Qualcomm® Snapdragon™ 4 Gen 2 Mobile Platform<br><br>(*Samsung* Foundry's *FinFET*  *4nm*) |
+| Chipset | Qualcomm® Snapdragon™ 4 Gen 2 Mobile Platform<br>(*Samsung* Foundry's *FinFET*  *4nm*) |
 | GPU | Qualcomm® Adreno™ 619 |
 | Memory | 4GB \| 6GB \| 8GB \| (LPDDR4x) |
 | Shipped Android Version | 13.0 |
