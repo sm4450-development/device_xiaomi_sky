@@ -82,6 +82,17 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.recovery.usb.rc
 
+# RRO Overlays
+PRODUCT_PACKAGES += \
+    CarrierConfig \
+    FrameworksResCommon \
+    FrameworksResTarget \
+    SettingsResCommon \
+    SystemUIResCommon \
+    TelephonyResCommon \
+    WifiResCommon \
+    WifiResTarget
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
