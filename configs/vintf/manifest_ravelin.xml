@@ -179,26 +179,6 @@
         <fqname>@2.3::IUceService/com.qualcomm.qti.uceservice</fqname>
     </hal>
     <hal format="hidl">
-        <name>interfaces.factoryAta</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IFactoryAta</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IFactoryAta/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>interfaces.factoryInterface</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IFactoryInterface</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IFactoryInterface/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
         <version>2.1</version>
@@ -714,16 +694,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IDisplayFeature/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.xiaomi.hardware.touchfeature</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITouchFeature</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ITouchFeature/default</fqname>
     </hal>
     <kernel target-level="6"/>
 </manifest>
