@@ -1,3 +1,6 @@
+on early-init
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
+
 on boot
     chown system system /sys/bus/platform/devices/soc:fpc1020/irq
     chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
