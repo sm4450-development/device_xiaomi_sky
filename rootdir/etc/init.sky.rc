@@ -34,10 +34,6 @@ on boot
     chown system system /sys/class/touch/touch_dev/palm_sensor
     chmod 0664 /sys/class/touch/touch_dev/palm_sensor
 
-    # Hide permissive selinux
-    chmod 0640 /sys/fs/selinux/enforce
-    chmod 0440 /sys/fs/selinux/policy
-
 on post-fs
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
