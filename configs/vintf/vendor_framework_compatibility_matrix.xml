@@ -77,6 +77,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.radio.qcriNvOpt</name>
+        <version>1.0</version>
+        <interface>
+            <name>IqcriNvOpt</name>
+            <instance>qcrinvopt0</instance>
+            <instance>qcrinvopt1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
         <interface>
