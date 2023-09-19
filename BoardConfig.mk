@@ -64,8 +64,7 @@ BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.selinux=permissive
+    androidboot.usbcontroller=a600000.dwc3
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
