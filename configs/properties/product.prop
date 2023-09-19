@@ -22,6 +22,9 @@ media.stagefright.audio.deep=false
 aaudio.mmap_exclusive_policy=2
 aaudio.hw_burst_min_usec=2000
 
+# Audio Graph Manager
+ro.miui.build.region=in
+
 # Blur
 ro.sf.blurs_are_expensive=1
 ro.surface_flinger.supports_background_blur=1
