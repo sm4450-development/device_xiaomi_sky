@@ -101,7 +101,6 @@ BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.selinux=permissive \
     androidboot.init_fatal_reboot_target=recovery
 
 BOARD_BOOT_HEADER_VERSION := 4
