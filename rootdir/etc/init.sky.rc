@@ -1,6 +1,12 @@
 on early-init
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
 
+    # SSR Setup
+    write /sys/class/remoteproc/remoteproc0/recovery enabled
+    write /sys/class/remoteproc/remoteproc1/recovery enabled
+    write /sys/class/remoteproc/remoteproc2/recovery enabled
+    write /sys/class/remoteproc/remoteproc3/recovery enabled
+
 on boot
     chown system system /sys/bus/platform/devices/soc:fpc1020/irq
     chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
