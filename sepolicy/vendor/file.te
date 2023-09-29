@@ -28,6 +28,9 @@ type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
 # Mlipay
 type ta_data_file, data_file_type, file_type;
 
+# Proximity
+type proc_proximity_ts, proc_type, fs_type;
+
 # SLA
 type sla_data_file, data_file_type, file_type;
 type slad_socket, file_type;

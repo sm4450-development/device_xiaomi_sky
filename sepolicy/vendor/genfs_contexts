@@ -15,6 +15,11 @@ genfscon sysfs /devices/platform/soc/soc:goodix_fp                              
 genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix                     u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc                        u:object_r:vendor_sysfs_fingerprint:s0
 
+# Proximity
+
+genfscon proc /touchscreen/proximity_switch            u:object_r:proc_proximity_ts:s0
+genfscon proc /touchscreen/store_data_proximity        u:object_r:proc_proximity_ts:s0
+
 # Suspend
 genfscon sysfs /devices/platform/soc/3000000.remoteproc-adsp/remoteproc/remoteproc2/3000000.remoteproc-adsp:glink-edge/3000000.remoteproc-adsp:glink-edge.adsp_apps.-1.-1/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-3/3-005a/wakeup u:object_r:sysfs_wakeup:s0
