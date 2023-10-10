@@ -327,6 +327,10 @@ PRODUCT_COPY_FILES += \
 # Properties
 include $(DEVICE_PATH)/configs/properties/default.mk
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-3.9.1-vendorcompat
+
 # QTI
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.systemhelper@1.0.vendor
