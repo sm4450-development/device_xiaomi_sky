@@ -42,6 +42,6 @@
     <integer name="config_doubleTapDefault">1</integer>
 
     <!-- Build fingerprint from stock ROM -->
-    <string name="config_stockFingerprint" translatable="false">Xiaomi/sky_in/missi:13/TKQ1.221114.001/V14.0.2.0.TMWINXM:user/release-keys</string>
+    <string name="config_stockFingerprint" translatable="false">Xiaomi/sky_in/missi:13/TKQ1.221114.001/V14.0.7.0.TMWINXM:user/release-keys</string>
 
 </resources>

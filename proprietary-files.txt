@@ -1,4 +1,4 @@
-# Device proprietary files - from sky MIUI V14.0.2.0.TMWINXM package, unless pinned
+# Device proprietary files - from sky MIUI V14.0.5.0.TMWINXM package, unless pinned
 
 # ACDB
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
