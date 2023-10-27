@@ -9,7 +9,7 @@ cc_library_static {
     srcs: ["power-feature.cpp"],
     shared_libs: [
         "libbase",
-        "vendor.aospa.power-V1-ndk_platform",
+        "vendor.aospa.power-V1-ndk",
     ],
     vendor: true,
 }
