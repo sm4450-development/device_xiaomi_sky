@@ -120,6 +120,7 @@ vendor/etc/audio_policy_engine_stream_volumes.xml
 vendor/etc/kvh2xml.xml
 vendor/etc/microphone_characteristics.xml
 vendor/etc/usecaseKvManager.xml
+vendor/etc/xiaomi_ecc_list.xml
 
 # Audio firmware
 vendor/firmware/aw87xxx_acf.bin
