@@ -17,16 +17,12 @@ on property:vendor.post_boot.parsed=1
     # Configure CPU input boost
     write /proc/sys/walt/input_boost/input_boost_freq "1324800 0 0 0 0 0 0 0"
     write /proc/sys/walt/input_boost/input_boost_ms 150
-    write /proc/sys/walt/input_boost/powerkey_input_boost_freq "1785600 0 0 0 2169600 0 0 2419200"
-    write /proc/sys/walt/input_boost/powerkey_input_boost_ms 300
 
     # Configure CPU governor ratelimits
     write /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us 20000
-    write /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us 10000
-    write /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us 5000
+    write /sys/devices/system/cpu/cpufreq/policy6/walt/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/policy6/walt/down_rate_limit_us 10000
 
     # Configure scheduler
     write /proc/sys/kernel/sched_upmigrate "80 95"
