@@ -1,0 +1,15 @@
+//
+// Copyright (C) 2022 Paranoid Android
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libpowerfeature_ext_sky",
+    srcs: ["power-feature.cpp"],
+    shared_libs: [
+        "libbase",
+        "vendor.aospa.power-V1-ndk_platform",
+    ],
+    vendor: true,
+}

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include <aidl/android/hardware/power/BnPower.h>
+#include <aidl/vendor/aospa/power/BnPowerFeature.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <linux/input.h>
@@ -54,29 +54,16 @@ int open_ts_input() {
 }  // anonymous namespace
 
 namespace aidl {
-namespace android {
-namespace hardware {
+namespace vendor {
+namespace aospa {
 namespace power {
-namespace impl {
 
 static constexpr int kInputEventWakeupModeOff = 4;
 static constexpr int kInputEventWakeupModeOn = 5;
 
-using ::aidl::android::hardware::power::Mode;
-
-bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
-    switch (type) {
-        case Mode::DOUBLE_TAP_TO_WAKE:
-            *_aidl_return = true;
-            return true;
-        default:
-            return false;
-    }
-}
-
-bool setDeviceSpecificMode(Mode type, bool enabled) {
-    switch (type) {
-        case Mode::DOUBLE_TAP_TO_WAKE: {
+bool setDeviceSpecificFeature(Feature feature, bool enabled) {
+    switch (feature) {
+        case Feature::DOUBLE_TAP: {
             int fd = open_ts_input();
             if (fd == -1) {
                 LOG(WARNING)
@@ -96,8 +83,7 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
     }
 }
 
-}  // namespace impl
 }  // namespace power
-}  // namespace hardware
-}  // namespace android
+}  // namespace aospa
+}  // namespace vendor
 }  // namespace aidl
