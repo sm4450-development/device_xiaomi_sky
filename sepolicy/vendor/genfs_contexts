@@ -5,6 +5,10 @@ genfscon sysfs /class/qcom-battery                                              
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc                            u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/fingerdown              u:object_r:vendor_sysfs_fingerprint:s0
 
+# Proximity
+genfscon proc /touchscreen/proximity_switch            u:object_r:proc_proximity_ts:s0
+genfscon proc /touchscreen/store_data_proximity        u:object_r:proc_proximity_ts:s0
+
 # Wakeup nodes
 genfscon sysfs /devices/platform/goodix_ts.0/wakeup                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/wakeup       u:object_r:sysfs_wakeup:s0

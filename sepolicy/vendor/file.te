@@ -9,6 +9,9 @@ type vendor_fingerprint_device, dev_type;
 # IR
 type ir_spi_device, dev_type;
 
+# Proximity
+type proc_proximity_ts, proc_type, fs_type;
+
 # Thermal
 type thermal_data_file, data_file_type, file_type;
 
