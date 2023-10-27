@@ -60,6 +60,9 @@ function blob_fixup() {
             "${PATCHELF}" --replace-needed "ls_nq_client-v1.so" "ls_nq_client.so" "${2}"
             "${PATCHELF}" --replace-needed "se_nq_extn_client-v1.so" "se_nq_extn_client.so" "${2}"
             ;;
+        vendor/bin/hw/android.hardware.security.keymint-service-qti)
+            "${PATCHELF}" --add-needed android.hardware.security.rkp-V1-ndk.so "${2}"
+            ;;
     esac
 }
 
