@@ -85,6 +85,9 @@ $(foreach p, $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600) \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
+# Power
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
