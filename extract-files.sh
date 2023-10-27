@@ -63,6 +63,9 @@ function blob_fixup() {
         vendor/bin/hw/android.hardware.security.keymint-service-qti)
             "${PATCHELF}" --add-needed android.hardware.security.rkp-V1-ndk.so "${2}"
             ;;
+	vendor/lib64/libhme.so)
+            "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
     esac
 }
 
