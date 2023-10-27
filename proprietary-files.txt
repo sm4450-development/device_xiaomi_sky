@@ -298,7 +298,6 @@ vendor/lib64/libmpbase.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libsns_device_mode_stub.so
-vendor/lib64/libstdc++.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libubifocus.so
 vendor/lib64/libvideoutils.so
