@@ -20,4 +20,8 @@
     <dimen name="horizontal_max_shift">2.0dp</dimen>
     <dimen name="vertical_max_shift">1.0dp</dimen>
 
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">5</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">4</integer>
+
 </resources>
