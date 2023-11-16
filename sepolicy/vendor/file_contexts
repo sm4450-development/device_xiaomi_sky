@@ -6,6 +6,10 @@
 
 # Display
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)?        u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/[0-9]+.dispsys_config/drm/card[0-3]+/card[0-3]+-DSI-1/brightness_clone u:object_r:vendor_sysfs_graphics:s0
+/sys/class/drm/card0-DSI-1/brightness_clone                               u:object_r:vendor_sysfs_graphics:s0
+/sys/class/display/backlight_clone/brightness_clone                       u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/virtual/display/backlight_clone/brightness_clone             u:object_r:vendor_sysfs_graphics:s0
 
 # Displayfeature
 /vendor/bin/displayfeature                                                u:object_r:vendor_displayfeature_exec:s0

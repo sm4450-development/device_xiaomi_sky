@@ -55,8 +55,25 @@ on boot
     chmod 0664 /sys/class/touch/touch_dev/palm_sensor
 
 on post-fs
+
+    # Allow access to dload sysfs node
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    chown root graphics /sys/module/msm_drm/parameters/dsi_display0
+    chmod 0640 /sys/module/msm_drm/parameters/dsi_display0
+    chown root graphics /sys/module/msm_drm/parameters/dsi_display1
+    chmod 0640 /sys/module/msm_drm/parameters/dsi_display1
+    chown system system /sys/class/backlight/panel0-backlight/brightness_clone
+    chown system system /sys/class/backlight/panel1-backlight/brightness
+    chown system system /sys/class/backlight/panel1-backlight/max_brightness
+
+    chmod 0664 /sys/class/display/backlight_clone/brightness_clone
+    chown system system /sys/class/display/backlight_clone/brightness_clone
+
+    chmod 0644 /sys/class/display/disp_param/panel_info
+    chown system system /sys/class/display/disp_param/panel_info
+    chmod 0664 /sys/class/display/disp_param/disp_param
+    chown system system /sys/class/display/disp_param/disp_param
 
 on post-fs-data
     # Camera
