@@ -889,6 +889,9 @@ vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
+# Post boot
+vendor/bin/init.kernel.post_boot-ravelin.sh
+
 # Public libraries
 vendor/etc/public.libraries.txt
 
