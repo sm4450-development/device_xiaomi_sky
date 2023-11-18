@@ -12,6 +12,7 @@
 #define FINGERPRINT_POCO_IN "POCO/sky:13/TKQ1.221114.001/V14.0.5.0.TMWINXM:user/release-keys"
 #define FINGERPRINT_REDMI_IN "Redmi/sky:13/TKQ1.221114.001/V14.0.5.0.TMWINXM:user/release-keys"
 #define FINGERPRINT_CHINA "Redmi/sky/sky:13/TKQ1.221114.001/V14.0.5.0.TMWINXM:user/release-keys"
+#define FINGERPRINT_GLOBAL "Redmi/sky/sky:13/TKQ1.221114.001/V14.0.5.0.TMWEUXM:user/release-keys"
 
 static const variant_info_t sky_poco_info = {
     .hwc_value = "India",
@@ -49,10 +50,23 @@ static const variant_info_t sky_china_info = {
     .build_fingerprint = FINGERPRINT_CHINA,
 };
 
+static const variant_info_t river_info = {
+    .hwc_value = "Global",
+    .boardid = "S88029AA1",
+
+    .brand = "Redmi",
+    .device = "river",
+    .marketname = "Redmi 12 5G",
+    .model = "23076RN8DY",
+    .mod_device = "sky_global",
+    .build_fingerprint = FINGERPRINT_GLOBAL,
+};
+
 static const std::vector<variant_info_t> variants = {
     sky_poco_info,
     sky_redmi_info,
     sky_china_info,
+    river_info,
 };
 
 void vendor_load_properties() {
