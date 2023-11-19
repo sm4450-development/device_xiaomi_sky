@@ -7,6 +7,16 @@ on early-init
     write /sys/class/remoteproc/remoteproc2/recovery enabled
     write /sys/class/remoteproc/remoteproc3/recovery enabled
 
+on early-init && property:ro.boot.boardid=S88029AA1
+    setprop ro.boot.product.hardware.sku hcesim
+    setprop ro.vendor.se.type HCE,UICC
+
+on early-init && property:ro.product.device=river
+    setprop persist.vendor.nfc.factory.fwstatus unknown
+    setprop ro.vendor.nfc.repair 1
+    setprop ro.vendor.nfc.wallet_fusion 1
+    setprop ro.vendor.nfc.dispatch_optim 1
+
 on boot
     chown system system /sys/bus/platform/devices/soc:fpc1020/irq
     chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
