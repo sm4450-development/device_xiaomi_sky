@@ -297,6 +297,7 @@ PRODUCT_PACKAGES += \
     SkySettingsOverlay \
     SkySystemUIOverlay \
     SkyWifiOverlay \
+    SkyWifiResTargetMainline \
     NoCutoutOverlay
 
 # Partitions

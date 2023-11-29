@@ -17,3 +17,9 @@ runtime_resource_overlay {
     sdk_version: "current",
     vendor: true,
 }
+
+runtime_resource_overlay {
+    name: "SkyWifiResTargetMainline",
+    manifest: "AndroidGoogleManifest.xml",
+    vendor: true,
+}
