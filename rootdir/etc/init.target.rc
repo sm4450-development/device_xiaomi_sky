@@ -75,6 +75,9 @@ on late-fs
     #exec_start wait_for_keymaster
     mount_all --late
 
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     # Enable WLAN cold boot calibration
