@@ -465,7 +465,6 @@ vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectTracker.so
 vendor/lib64/libscveObjectTracker_stub.so
 vendor/lib64/libsensorslog.so
-vendor/lib64/libstdc++.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsynx.so
 vendor/lib64/libtfestriping.so
