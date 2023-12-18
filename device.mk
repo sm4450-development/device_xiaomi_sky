@@ -12,9 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
-# Setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
-
 # Call the proprietary setup.
 $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
@@ -156,6 +153,15 @@ PRODUCT_COPY_FILES += \
 # Capabilityconfigstore
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+
+# Dalvik heap
+PRODUCT_PROPERTY_OVERRIDES  += \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapsize=256m \
+    dalvik.vm.heapgrowthlimit=128m \
+    dalvik.vm.heaptargetutilization=0.75 \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapmaxfree=8m
 
 # DRM
 PRODUCT_PACKAGES += \
