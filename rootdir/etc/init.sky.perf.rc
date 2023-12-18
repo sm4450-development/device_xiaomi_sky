@@ -1,0 +1,58 @@
+# Copyright (C) 2021-2023 Paranoid Android
+# SPDX-License-Identifier: Apache-2.0
+
+on init
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
+
+# Migrate tasks again in case kernel threads are created during boot
+on property:sys.boot_completed=1
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
+
+on property:vendor.post_boot.parsed=1
+    # Setup runtime cpusets
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-3
+
+    # Configure CPU input boost
+    write /proc/sys/walt/input_boost/input_boost_freq "1324800 0 0 0 0 0 0 0"
+    write /proc/sys/walt/input_boost/input_boost_ms 150
+
+    # Configure CPU governor ratelimits
+    write /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us 20000
+    write /sys/devices/system/cpu/cpufreq/policy6/walt/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/policy6/walt/down_rate_limit_us 10000
+
+    # Configure scheduler
+    write /proc/sys/kernel/sched_upmigrate "80 95"
+    write /proc/sys/kernel/sched_downmigrate "75 85"
+    write /proc/sys/kernel/sched_group_upmigrate 95
+    write /proc/sys/kernel/sched_group_downmigrate 80
+
+    # Configure uclamp
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/background/cpu.uclamp.max 50
+    write /dev/cpuctl/system-background/cpu.uclamp.max 50
+    write /dev/cpuctl/dex2oat/cpu.uclamp.max 60
+    # Setup cpu.shares to throttle background groups (bg ~ 5% sysbg ~ 5% dex2oat ~2.5%)
+    write /dev/cpuctl/background/cpu.shares 1024
+    write /dev/cpuctl/system-background/cpu.shares 1024
+    write /dev/cpuctl/dex2oat/cpu.shares 512
+    write /dev/cpuctl/system/cpu.shares 20480
+    # We only have system and background groups holding tasks and the groups below are empty
+    write /dev/cpuctl/camera-daemon/cpu.shares 20480
+    write /dev/cpuctl/foreground/cpu.shares 20480
+    write /dev/cpuctl/nnapi-hal/cpu.shares 20480
+    write /dev/cpuctl/rt/cpu.shares 20480
+    write /dev/cpuctl/top-app/cpu.shares 20480
+
+    # IRQ Tuning
+    # IRQ 253: msm_drm0
+    # IRQ 208: kgsl_3d0_irq
+    write /proc/irq/208/smp_affinity_list 1                     
+    write /proc/irq/253/smp_affinity_list 2
+
+on property:persist.sys.device_provisioned=1                                   
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    setprop dalvik.vm.dex2oat-threads 6
