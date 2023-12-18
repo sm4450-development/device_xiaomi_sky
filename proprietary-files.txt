@@ -2055,6 +2055,13 @@ vendor/bin/ssr_diag
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
 
+# Thermal (limits-hal)
+vendor/bin/hw/vendor.qti.hardware.limits@1.1-service
+vendor/etc/init/vendor.qti.hardware.limits-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.limits-service.xml
+vendor/lib64/vendor.qti.hardware.limits@1.0.so
+vendor/lib64/vendor.qti.hardware.limits@1.1.so
+
 # Thermal
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
