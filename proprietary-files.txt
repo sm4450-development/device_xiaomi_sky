@@ -1501,12 +1501,10 @@ system_ext/lib64/vendor.qti.hardware.perf@2.3.so|e2226cc181265426a779b8f030bf9c9
 system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so|b59800aaae7bcae40ee0911516397568d205bc5f
 system_ext/lib64/vendor.qti.qspmhal@1.0.so|d6a85a1a67b26ef6147f14e1a1a8100d21eeae18
 
-# Perf (vendor) - from LA.QSSI.14.0.r1
-vendor/app/pasrservice/pasrservice.apk|7f0befe51adf2470aef394c3828283ddbc9bd58b
+# Perf (vendor) - from pong
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service|257c7d60baa0b2334645ef20c90a1b8b11842945
 vendor/bin/hw/vendor.qti.hardware.perf-hal-service|9b69e070d85615ee13ac70a82ec47e85beb11215
 vendor/bin/hw/vendor.qti.hardware.servicetracker@1.2-service|ee5239499bebae472b164d56d0bff7cad0b8e82f
-vendor/bin/hw/vendor.qti.memory.pasrmanager@1.0-service|dd33fa0c3e9c5a636fea77f8712300c4191893f9
 vendor/bin/hw/vendor.qti.psiclient@1.0-service|439ea7940c373bbee6f90c07297fe0beec1a8892
 vendor/bin/msm_irqbalance|313c3422b0dbaf7c65440bf343f2aed0679a2a4a
 vendor/bin/poweropt-service|3ff43bde790493a33e16795c86e59a00597957fb
@@ -1515,21 +1513,13 @@ vendor/etc/init/poweropt-service.rc|52e51883aab0d9bd9183bf325b9620b9866cd9be
 vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc|fd11367b2585702190ef2577ce2ce6fc68f3a2f8
 vendor/etc/init/vendor.qti.hardware.perf-hal-service.rc|3a399b83162e776f9737cb14a6ef4020c63a0204
 vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc|7cf06148da895586c20aab7e6bd01b806d8128b6
-vendor/etc/init/vendor.qti.memory.pasrmanager@1.0-service.rc|0392c66c185676fe4405e170338c8222f223b825
 vendor/etc/init/vendor.qti.psiclient@1.0-service.rc|6e4bd469a214151e3aca36ecdcb542099f9c534f
 vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc|bdc5cbedd1688807409c72262824ca9162b20239
-vendor/etc/pwr/PSMPowerOptFeature.xml|32a75e7a5ac93f057423c78d2791722d8b5f63c0
-vendor/etc/pwr/PowerFeatureConfig.xml|a488a6e97bf2e47c0fabace96bb215c2b16a0c1f
-vendor/etc/pwr/StandbyFeature.xml|ee7ef0883a0d6da74e3fb33d5ea7748a53d6075a
-vendor/etc/pwr/VendorScenarioPowerOptFeature.xml|5eb6210857d95f00d91a30bbb99c2d4d0155b0c0
-vendor/etc/pwr/VideoPowerOptFeature.xml|8842300e3be4b8c50ca4ead51a4961b3344877e1
 vendor/etc/seccomp_policy/qspm.policy|943dd12bd4ae7cb0037b2e246143d76bb1787257
 vendor/etc/vintf/manifest/vendor.qti.hardware.perf.xml|3cf294c1718f2c4e2ae99345043027b6279b3de1
 vendor/etc/vintf/manifest/vendor.qti.hardware.power.powermodule.xml|f2be100874f8fd8dbcfb4efbedc3d6ea87d2ec5e
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml|40b6abd9b4be99dc5722eb60d71ee36764bf4ef3
-vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager@1.0-service.xml|7df963e6444be110b2b3896847dd57fd8558996f
 vendor/lib64/hw/vendor.qti.hardware.servicetracker@1.2-impl.so|3711acd81c7436cb0bd02ef22e1fd4e59a86cc48
-vendor/lib64/hw/vendor.qti.memory.pasrmanager@1.0-impl.so|a550b27157667a8e133f455fd99bcdbdef9e1ba9
 vendor/lib64/libadaptlaunch.so|396697545ee08f548beb8e103b572f08c78cd749
 vendor/lib64/libapengine.so|4a78a0b9aab58e2d8df524da4745e2bbf22f2e29
 vendor/lib64/libappclassifier.so|cd16d2ffa6adf8213b5f828cdc0205f65a918177
