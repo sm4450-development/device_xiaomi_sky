@@ -1442,29 +1442,7 @@ vendor/lib64/libFlacSwDec.so
 vendor/lib64/libdsd2pcm.so
 
 # Perf configs
-vendor/etc/lm/prekill/prekill_2GB.data
-vendor/etc/lm/prekill/prekill_4GB.data
-vendor/etc/lm/prekill/prekill_6GB.data
-vendor/etc/lm/AdaptLaunchFeature.xml
-vendor/etc/lm/AppClassifierFeature.xml
-vendor/etc/lm/LightningLaunchesFeature.xml
-vendor/etc/lm/PreKillFeature.xml
-vendor/etc/lm/ProCompFeature.xml
-vendor/etc/lm/QAPE.xml
-vendor/etc/lm/QGPE.xml
-vendor/etc/lm/QGPEActionMap.xml
-vendor/etc/lm/SilkyScrollsFeature.xml
-vendor/etc/perf/avcsysnodesconfigs.xml
-vendor/etc/perf/commonresourceconfigs.xml
-vendor/etc/perf/commonsysnodesconfigs.xml
-vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/perfboostselection.xml
-vendor/etc/perf/perfconfigstore.xml
-vendor/etc/perf/targetconfig.xml
-vendor/etc/perf/targetresourceconfigs.xml
-vendor/etc/perf/targetsysnodesconfigs.xml
 vendor/etc/perf/thermal-boost.conf
-
 
 # Perf (system) - from LA.QSSI.14.0.r1
 system/etc/permissions/com.qualcomm.qti.Performance.xml|7976f2fd46b8d07814310cc957a70f829bdd6932
