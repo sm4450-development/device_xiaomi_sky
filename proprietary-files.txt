@@ -64,7 +64,18 @@ vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio graph manager
+vendor/bin/agmcap
+vendor/bin/agmcompressplay
+vendor/bin/agmplay
+vendor/bin/cplay
+vendor/bin/hw/vendor.qti.hardware.AGMIPC@1.0-service
+vendor/etc/init/vendor.qti.hardware.AGMIPC@1.0-service.rc
 -vendor/lib/libagm.so
+vendor/lib64/libagm_compress_plugin.so
+vendor/lib64/libagm_mixer_plugin.so
+vendor/lib64/libagm_pcm_plugin.so
+vendor/lib64/libagmclient.so
+vendor/lib64/libagmmixer.so
 vendor/lib/libagm_compress_plugin.so
 vendor/lib/libagm_mixer_plugin.so
 vendor/lib/libagm_pcm_plugin.so
@@ -74,6 +85,7 @@ vendor/lib/libagmmixer.so
 vendor/lib/vendor.qti.hardware.AGMIPC@1.0.so
 -vendor/lib64/libagm.so
 -vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so
 
 # Audio libraries
 vendor/etc/models/acd/event.eai
@@ -2178,6 +2190,9 @@ vendor/etc/init/hw/init.qcom.usb.rc
 vendor/etc/init/android.hardware.usb@1.2-service-qti.rc
 vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml
 vendor/etc/usb_compositions.conf
+vendor/lib64/android.hardware.usb@1.0.so
+vendor/lib64/android.hardware.usb@1.1.so
+vendor/lib64/android.hardware.usb@1.2.so
 
 # Vibrator
 vendor/firmware/aw87xxx_acf.bin
