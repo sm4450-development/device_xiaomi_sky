@@ -1441,7 +1441,7 @@ vendor/lib64/libFlacSwDec.so
 vendor/lib64/libdsd2pcm.so
 
 # Perf configs
-vendor/etc/perf/thermal-boost.conf
+vendor/etc/perf/thermalboost.conf
 
 # Perf (system) - from LA.QSSI.14.0.r1
 system/etc/permissions/com.qualcomm.qti.Performance.xml|7976f2fd46b8d07814310cc957a70f829bdd6932
