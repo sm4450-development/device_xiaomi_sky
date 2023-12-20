@@ -994,3 +994,9 @@ on property:sys.boot_completed=1 && property:ro.product.debugfs_restrictions.ena
 on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.debuggable="1"
    mount debugfs debugfs /sys/kernel/debug
    chmod 0755 /sys/kernel/debug
+
+service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
+    override
+    class hal
+    user system
+    group system input
