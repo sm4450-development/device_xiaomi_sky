@@ -240,6 +240,10 @@ on boot
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
+    #chown/chmod input_suspend node
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0666 /sys/class/qcom-battery/input_suspend
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
