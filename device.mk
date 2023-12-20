@@ -112,7 +112,8 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Charger
 PRODUCT_PACKAGES += \
-    libsuspend
+    libsuspend \
+    charger_res_images
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
