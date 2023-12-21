@@ -63,7 +63,7 @@ service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.
     capabilities SYS_NICE
     onrestart restart surfaceflinger
     socket pps stream 0660 system system
-    writepid /dev/cpuset/foreground/tasks
+    task_profiles ProcessCapacityHigh HighPerformance
 
 on property:persist.sys.device_provisioned=1                                   
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
