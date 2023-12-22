@@ -629,7 +629,6 @@ product/etc/displayconfig/display_id_4630946796165144705.xml:vendor/etc/displayc
 product/etc/displayconfig/display_id_4630946904973289089.xml:vendor/etc/displayconfig/display_id_4630946904973289089.xml
 vendor/etc/display/DPU820.xml
 vendor/etc/display/DPU8__.xml
-vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/display/thermallevel_to_fps.xml
 vendor/etc/snapdragon_color_libs_config.xml
 
