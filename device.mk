@@ -130,6 +130,7 @@ PRODUCT_ODM_PROPERTIES += \
     vendor.display.vds_allow_hwc=true
 
 PRODUCT_VENDOR_PROPERTIES += \
+    debug.sf.defer_refresh_rate_when_off=1 \
     debug.sf.disable_backpressure=1 \
     debug.sf.frame_rate_multiple_threshold=90 \
     persist.sys.sf.native_mode=258 \
