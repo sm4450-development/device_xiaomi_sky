@@ -23,6 +23,9 @@
 /dev/goodix_fp                                                            u:object_r:vendor_fingerprint_device:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 
+# Health
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.xiaomi               u:object_r:hal_health_default_exec:s0
+
 # IR
 /dev/ir_spi                                                               u:object_r:ir_spi_device:s0
 
