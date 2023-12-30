@@ -198,6 +198,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss-V1-ndk_platform.vendor
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.xiaomi \
