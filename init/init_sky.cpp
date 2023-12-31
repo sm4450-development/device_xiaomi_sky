@@ -78,13 +78,13 @@ void vendor_load_properties() {
     std::string boardid = GetProperty("ro.boot.boardid", "");
     if (region == "India" && boardid == "S88019EP1") {
 	set_device_props(
-	    "POCO/sky_p_in/sky:13/TKQ1.221114.001/V14.0.5.0.TMWINXM:user/release-keys",
-            "sky-user-12-TKQ1.221114.001-V14.0.5.0.TMWINXM-release-keys", "POCO", "sky",
+	    "POCO/sky_p_in/sky:13/TKQ1.221114.001/V14.0.7.0.TMWINXM:user/release-keys",
+            "sky-user-13-TKQ1.221114.001-V14.0.7.0.TMWINXM-release-keys", "POCO", "sky",
             "23076PC4BI", "sky_p_in", "POCO M6 Pro 5G");
     } else {
         set_device_props(
-            "Xiaomi/sky_p_in/sky:13/TKQ1.221114.001/V14.0.5.0.TMWINXM:user/release-keys",
-            "sky-user-12-TKQ1.221114.001-V14.0.5.0.TMWINXM-release-keys", "Redmi", "sky",
+            "Redmi/sky_in/sky:13/TKQ1.221114.001/V14.0.7.0.TMWINXM:user/release-keys",
+            "sky-user-13-TKQ1.221114.001-V14.0.7.0.TMWINXM-release-keys", "Redmi", "sky",
             "23076RN4BI", "sky_in", "Redmi 12 5G");
     }
     // Set hardware revision
