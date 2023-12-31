@@ -83,6 +83,10 @@ on post-fs
     chmod 0664 /sys/class/display/disp_param/disp_param
     chown system system /sys/class/display/disp_param/disp_param
 
+    #chown/chmod input_suspend node
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0666 /sys/class/qcom-battery/input_suspend
+
 on post-fs-data
     # Camera
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
