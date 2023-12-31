@@ -88,6 +88,7 @@ vendor/lib64/libqtigefar.so
 vendor/lib64/libsndcardparser.so
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libmisoundfx.so
+vendor/lib64/soundfx/libhapticgenerator.so
 vendor/lib64/soundfx/libqcompostprocbundle.so
 vendor/lib64/soundfx/libqcomvisualizer.so
 vendor/lib64/soundfx/libqcomvoiceprocessing.so
