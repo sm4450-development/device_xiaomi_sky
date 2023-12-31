@@ -549,24 +549,24 @@
     <!-- An array of arrays of side fingerprint sensor properties relative to each display.
          Note: this value is temporary and is expected to be queried directly
          from the HAL in the future. -->
-    <array name="config_sfps_sensor_props" translatable="false">
-         <item>@array/sfps_sensor_props_0</item>
-         <item>@array/sfps_sensor_props_1</item>
+    <array name="config_sfps_sensor_props">
+        <item>@array/config_sfps_sensor_props_0</item>
+        <item>@array/config_sfps_sensor_props_1</item>
     </array>
 
-    <string-array name="sfps_sensor_props_0" translatable="false">
-        <item>local:4630946370515662722</item> <!-- displayId -->
-        <item>1080</item> <!-- sensorLocationX -->
-        <item>920</item>  <!-- sensorLocationY -->
-        <item>210</item>  <!-- sensorRadius -->
-    </string-array>
+    <array name="config_sfps_sensor_props_0">
+        <item></item>     <!-- displayId -->
+        <item>0</item> <!-- sensorLocationX -->
+        <item>1000</item>  <!-- sensorLocationY -->
+        <item>110</item>  <!-- sensorRadius -->
+    </array>
 
-    <string-array name="sfps_sensor_props_1" translatable="false">
-        <item>local:4630946480857061762</item> <!-- displayId -->
-        <item>1080</item> <!-- sensorLocationX -->
-        <item>920</item>  <!-- sensorLocationY -->
-        <item>210</item>  <!-- sensorRadius -->
-    </string-array>
+    <array name="config_sfps_sensor_props_1">
+        <item></item>     <!-- displayId -->
+        <item>0</item> <!-- sensorLocationX -->
+        <item>1000</item>  <!-- sensorLocationY -->
+        <item>110</item>  <!-- sensorRadius -->
+    </array>
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
