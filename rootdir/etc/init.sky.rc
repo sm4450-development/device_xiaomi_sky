@@ -13,6 +13,14 @@ on early-boot
 on early-init
     start vendor.audioadsprpcd_audiopd
 
+on early-init && property:ro.boot.boardid=S88029AA1
+    setprop ro.boot.product.hardware.sku river
+    setprop ro.vendor.se.type HCE,UICC
+    setprop persist.vendor.nfc.factory.fwstatus unknown
+    setprop ro.vendor.nfc.repair 1
+    setprop ro.vendor.nfc.wallet_fusion 1
+    setprop ro.vendor.nfc.dispatch_optim 1
+
 on boot
     # Modem
     chmod 0777 /dev/smd8

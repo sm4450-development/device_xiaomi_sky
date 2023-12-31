@@ -867,8 +867,34 @@ vendor/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
 vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
 
 # NFC
+vendor/etc/init/init_nfc_sn1xxx.rc
+vendor/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc
+vendor/etc/libnfc-SN220.conf
+vendor/etc/libnfc-mtp-SN100.conf
+vendor/etc/libnfc-mtp-SN100_38_4MHZ.conf
 vendor/etc/libnfc-nci.conf
+vendor/etc/libnfc-nxp-pnscr.conf
+vendor/etc/libnfc-qrd-SN100_38_4MHZ.conf
+vendor/etc/libnfc-qrd-SN100_CN.conf
+vendor/etc/libnfc-qrd-SN100_GLB.conf
+vendor/etc/libnfc-qrd-SN100_JP.conf
+vendor/etc/sn100u_bootup.pnscr
+vendor/etc/sn100u_ese_disableIso.pnscr
+vendor/etc/sn100u_ese_disableIsoRead.pnscr
+vendor/etc/sn100u_nfcon.pnscr
+vendor/etc/sn100u_pnx_chr.pnscr
+vendor/etc/sn100u_pnx_cui.pnscr
+vendor/etc/sn100u_pnx_ese_3.pnscr
+vendor/etc/sn100u_pnx_ese_aclog.pnscr
+vendor/etc/sn100u_pnx_ese_cplc.pnscr
+vendor/etc/sn100u_pnx_ese_sn.pnscr
+vendor/etc/sn100u_pnx_ndi.pnscr
+vendor/etc/sn100u_pnx_pcv.pnscr
+vendor/etc/sn100u_pnx_sst.pnscr
 vendor/lib64/libsn100u_fw.so
+vendor/lib64/libsn100u_fw_cn.so
+vendor/lib64/libsn100u_fw_jp.so
+vendor/lib64/libsn220u_fw.so
 
 # NFC (Secure element)
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service

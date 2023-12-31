@@ -39,8 +39,8 @@ BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/device_framework_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
-ODM_MANIFEST_SKUS += sky
-ODM_MANIFEST_SKY_FILES := $(DEVICE_PATH)/configs/hidl/manifest_nfc.xml
+ODM_MANIFEST_SKUS += river
+ODM_MANIFEST_RIVER_FILES := $(DEVICE_PATH)/configs/hidl/manifest_nfc.xml
 
 # Kernel
 BOARD_KERNEL_PAGESIZE := 4096
