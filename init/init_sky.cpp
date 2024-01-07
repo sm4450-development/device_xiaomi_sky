@@ -69,6 +69,7 @@ void set_device_props(const std::string fingerprint, const std::string descripti
 
     property_override("ro.build.fingerprint", fingerprint.c_str());
     property_override("ro.build.description", description.c_str());
+    property_override("ro.product.board", device.c_str());
     property_override("bluetooth.device.default_name", model.c_str());
 }
 
