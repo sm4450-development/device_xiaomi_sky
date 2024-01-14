@@ -113,28 +113,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <instance>default</instance>
           </interface>
      </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.qti.hardware.perf2</name>
-        <interface>
-            <name>IPerf</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.power.powermodule</name>
-        <version>1.0</version>
-        <interface>
-            <name>IPowerModule</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.qti.hardware.power.powermodule</name>
-        <interface>
-            <name>IPowerModule</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
      <hal format="hidl" optional="true">
          <name>vendor.display.color</name>
          <version>1.0-7</version>
@@ -657,21 +635,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <instance>mstatservice</instance>
          </interface>
      </hal>
-     <hal format="aidl" optional="true">
-         <name>vendor.qti.memory.pasrmanager</name>
-         <interface>
-             <name>IPasrManager</name>
-             <instance>default</instance>
-         </interface>
-     </hal>
-     <hal format="hidl" optional="true">
-         <name>vendor.qti.memory.pasrmanager</name>
-         <version>1.0-1</version>
-         <interface>
-             <name>IPasrManager</name>
-             <instance>pasrhal</instance>
-         </interface>
-     </hal>
      <hal format="hidl" optional="true">
          <name>vendor.qti.voiceprint</name>
          <version>1.0</version>
@@ -826,21 +789,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <instance>default</instance>
          </interface>
      </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.qspmhal</name>
-        <version>1.0</version>
-        <interface>
-            <name>IQspmhal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.qti.qspmhal</name>
-        <interface>
-            <name>IQspmhal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.radio.config</name>
         <version>1.0-1</version>
