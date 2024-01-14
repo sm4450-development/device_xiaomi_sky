@@ -11,7 +11,7 @@
 
     <!-- The type of the light sensor to be used by the display framework for things like
          auto-brightness. If unset, then it just gets the default sensor of type TYPE_LIGHT. -->
-    <string name="config_displayLightSensorType" translatable="false">xiaomi.sensor.ambientlight.raw</string>
+    <string name="config_displayLightSensorType" translatable="false">android.sensor.light</string>
 
     <!-- Flag specifying whether VoLTE should be available for carrier: independent of
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
