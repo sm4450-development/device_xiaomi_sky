@@ -55,28 +55,6 @@ on property:vendor.post_boot.parsed=1
     write /proc/irq/208/smp_affinity_list 1                     
     write /proc/irq/253/smp_affinity_list 2
 
-    # Setup foreground cpuset for display composer.
-    write /dev/cpuset/foreground/cpus 0-6
-
-service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.display.composer-service
-    override
-    class hal animation
-    user system
-    group graphics drmrpc
-    capabilities SYS_NICE
-    onrestart restart surfaceflinger
-    socket pps stream 0660 system system
-    task_profiles ProcessCapacityHigh HighPerformance
-
-service vendor.qti.hardware.display.allocator /vendor/bin/hw/vendor.qti.hardware.display.allocator-service
-    override
-    class hal animation
-    user system
-    group graphics drmrpc
-    capabilities SYS_NICE
-    onrestart restart surfaceflinger
-    task_profiles ProcessCapacityHigh HighPerformance
-
 on property:persist.sys.device_provisioned=1                                   
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
     setprop dalvik.vm.dex2oat-threads 6
