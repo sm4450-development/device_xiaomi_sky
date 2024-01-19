@@ -2151,6 +2151,8 @@ vendor/lib64/libtime_genoff.so
 # Touch firmware
 vendor/firmware/focaltech_ft8720_hx.ini
 vendor/firmware/focaltech_ts_fw_.bin
+vendor/firmware/focaltech_ft8725_hx.ini
+vendor/firmware/focaltech_8725_fw.bin
 vendor/firmware/novatek_ts_fw.bin
 vendor/firmware/novatek_ts_mp.bin
 
