@@ -188,6 +188,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
+# Firmware
+$(call inherit-product-if-exists, vendor/xiaomi/firmware/sky/config.mk)
+
 # F2FS utilities
 PRODUCT_PACKAGES += \
     sg_write_buffer \
