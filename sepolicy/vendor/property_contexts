@@ -1,5 +1,7 @@
 # Camera
-vendor.camera.sensor. u:object_r:vendor_camera_sensor_prop:s0
+vendor.camera.                                        u:object_r:vendor_camera_prop:s0
+persist.camera.                                       u:object_r:vendor_camera_prop:s0
+ro.boot.camera.                                       u:object_r:vendor_camera_prop:s0
 
 # DDR
 vendor.ddr_training.is.start u:object_r:vendor_ddr_prop:s0
