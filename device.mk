@@ -162,6 +162,10 @@ PRODUCT_PACKAGES += \
     libsuspend \
     charger_res_images
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
