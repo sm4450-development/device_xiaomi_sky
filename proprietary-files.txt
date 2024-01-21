@@ -1376,6 +1376,8 @@ vendor/firmware/evass.mbn
 vendor/firmware/evass.mdt
 vendor/firmware/focaltech_ft8720_hx.ini
 vendor/firmware/focaltech_ts_fw_.bin
+vendor/firmware/focaltech_ft8725_hx.ini
+vendor/firmware/focaltech_8725_fw.bin
 vendor/firmware/fs1599.fsm
 vendor/firmware/gen6_3_26_0_zap.b00
 vendor/firmware/gen6_3_26_0_zap.b01
