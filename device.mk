@@ -239,8 +239,6 @@ PRODUCT_COPY_FILES += \
 
 # Kernel
 KERNEL_PREBUILT_DIR := $(LOCAL_PATH)-kernel
-PRODUCT_COPY_FILES += \
-    $(KERNEL_PREBUILT_DIR)/dtbs/dtb:dtb.img
 
 # Keymaster
 PRODUCT_PACKAGES += \
