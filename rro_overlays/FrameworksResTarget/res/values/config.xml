@@ -118,4 +118,24 @@
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
 
+    <!-- Vibrator pattern for feedback about a long screen/key press -->
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>50</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about touching a virtual key -->
+    <integer-array name="config_virtualKeyVibePattern">
+        <item>0</item>
+        <item>40</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback that simulates a double click effect -->
+    <integer-array name="config_doubleClickVibePattern">
+        <item>0</item>
+        <item>50</item>
+        <item>100</item>
+        <item>50</item>
+    </integer-array>
+
 </resources>
