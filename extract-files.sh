@@ -59,6 +59,9 @@ function blob_fixup() {
         vendor/bin/hw/vendor.qti.hardware.display.composer-service)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
             ;;
+	vendor/lib64/libhme.so)
+            "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
     esac
 }
 
