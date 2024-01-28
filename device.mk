@@ -486,9 +486,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libstdc++_vendor
 
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so
-
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
