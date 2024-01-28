@@ -329,6 +329,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/parrot/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-3.9.1-vendorcompat
+
 # Properties
 include $(DEVICE_PATH)/configs/properties/default.mk
 
