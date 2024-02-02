@@ -32,20 +32,20 @@
          @see https://www.w3.org/TR/SVG/paths.html#PathData
     -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
-        M 0,0 H -28 V 94 H 28 V 0 H 0 Z
+        M 0,0 H -35 V 104 H 35 V 0 H 0 Z
     </string>
 
     <!-- Height of the status bar.
          Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
          -->
-    <dimen name="status_bar_height_portrait">94px</dimen>
+    <dimen name="status_bar_height_portrait">104px</dimen>
     <dimen name="status_bar_height_landscape">28dp</dimen>
 
     <!-- Radius of the software rounded corners of the display in it's natural orientation-->
-    <dimen name="rounded_corner_radius">70px</dimen>
+    <dimen name="rounded_corner_radius">110px</dimen>
 
     <!-- Default paddings for content around the corners. -->
-    <dimen name="rounded_corner_content_padding">47px</dimen>
+    <dimen name="rounded_corner_content_padding">50px</dimen>
 
     <!-- The default refresh rate for a given device. Change this value to set a higher default
          refresh rate. If the hardware composer on the device supports display modes with a higher

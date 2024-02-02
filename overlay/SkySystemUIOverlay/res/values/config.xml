@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- The padding around the statusbar -->
-    <dimen name="status_bar_padding_top">14px</dimen>
+    <dimen name="status_bar_padding_top">24px</dimen>
     <dimen name="status_bar_padding_start">4dp</dimen>
     <dimen name="status_bar_padding_end">4dp</dimen>
 
