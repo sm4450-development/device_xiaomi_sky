@@ -128,8 +128,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_ODM_PROPERTIES += \
     persist.sys.sf.color_mode=0 \
     vendor.display.disable_3d_adaptive_tm=0 \
-    vendor.display.enable_rounded_corner=0 \
-    vendor.display.vds_allow_hwc=true
+    vendor.display.enable_rounded_corner=0
 
 PRODUCT_VENDOR_PROPERTIES += \
     debug.sf.defer_refresh_rate_when_off=1 \
