@@ -15,7 +15,6 @@ android_app {
     system_ext_specific: true,
     privileged: true,
 
-    overrides: ["MusicFX"],
     static_libs: [
         "co.aospa.resources",
     ],
