@@ -634,4 +634,6 @@
         <item>30</item>
     </integer-array>
 
+    <!-- If device supports pickup/lift gesture -->
+    <bool name="config_dozePulsePickup">true</bool>
 </resources>
