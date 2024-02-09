@@ -158,7 +158,7 @@
 
     <!-- Minimum screen brightness setting allowed by power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0009</item>
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.000488759</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
          The user is forbidden from setting the brightness above this level. -->
@@ -166,12 +166,12 @@
 
     <!-- Default screen brightness setting
          Must be in the range specified by minimum and maximum. -->
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.075</item>
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.14956012</item>
 
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0009</item>
+    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.000488759</item>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
