@@ -107,9 +107,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.camera.enableCamera1MaxZsl=1 \
     ro.hardware.camera=xiaomi
 
-# Characteristics
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # Charger
 PRODUCT_PACKAGES += \
     libsuspend \
