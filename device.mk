@@ -216,6 +216,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Init scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh \
+    $(LOCAL_PATH)/rootdir/bin/init.sky.perf.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.sky.perf.sh \
     $(LOCAL_PATH)/rootdir/etc/init.sky.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sky.rc \
     $(LOCAL_PATH)/rootdir/etc/init.sky.perf.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sky.perf.rc \
     $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
@@ -260,19 +261,16 @@ PRODUCT_PACKAGES += \
 
 # Logging
 SPAMMY_LOG_TAGS := \
-    MiStcImpl \
     SDM \
     SDM-histogram \
     SRE \
     WifiHAL \
     cnss-daemon \
-    libcitsensorservice@2.0-impl \
     libsensor-displayalgo \
     libsensor-parseRGB \
     libsensor-ssccalapi \
     sensors \
-    vendor.qti.hardware.display.composer-service \
-    vendor.xiaomi.sensor.citsensorservice@2.0-service
+    vendor.qti.hardware.display.composer-service
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \
