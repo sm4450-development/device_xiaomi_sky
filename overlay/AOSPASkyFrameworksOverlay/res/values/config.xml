@@ -44,4 +44,16 @@
     <!-- Build fingerprint from stock ROM -->
     <string name="config_stockFingerprint" translatable="false">Xiaomi/sky_in/missi:13/TKQ1.221114.001/V14.0.7.0.TMWINXM:user/release-keys</string>
 
+    <!-- Considering the fact that the system might have an incorrect estimation of the time to
+         full. Set a time margin to make the device fully charged before the target time arrives.
+         The unit is minutes and the default value is 30 minutes. If you find that it is not enough
+         to make the device to be fully charged at the target time, increase the value
+    -->
+    <integer name="config_chargingControlTimeMargin">140</integer>
+    <!-- For a device that cannot bypass battery when charging stops (that is, the battery current
+         is 0mA when charging stops), the battery will gradually discharge. So we need to make it
+         recharge when the battery level is lower than a threshold. Set this so that the device
+         will be charged between (limit - val) and limit. -->
+    <integer name="config_chargingControlBatteryRechargeMargin">1</integer>
+
 </resources>
