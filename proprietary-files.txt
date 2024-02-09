@@ -352,10 +352,6 @@ vendor/lib64/libmmcamera_pdpc.so
 vendor/lib64/libqc2filter.so
 vendor/lib64/libMNN.so
 vendor/lib64/libaudiocloudctrl.so
-vendor/lib64/android.hardware.camera.provider@2.4.so
-vendor/lib64/android.hardware.camera.provider@2.5.so
-vendor/lib64/android.hardware.camera.provider@2.6.so
-vendor/lib64/android.hardware.camera.provider@2.7.so
 
 # Camera components
 vendor/lib64/camera/components/com.arcsoft.node.realtimebokeh.so
