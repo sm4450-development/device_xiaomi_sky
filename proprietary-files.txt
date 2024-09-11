@@ -113,7 +113,6 @@ vendor/etc/audio/sku_ravelin/resourcemanager_ravelin_idp.xml
 vendor/etc/audio/sku_ravelin/resourcemanager_ravelin_qrd.xml
 vendor/etc/audio/sku_ravelin/resourcemanager_upd.xml
 vendor/etc/audio/sku_ravelin_qssi/audio_policy_configuration.xml
-vendor/etc/a2dp_audio_policy_configuration.xml
 vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
 vendor/etc/audio_policy_engine_default_stream_volumes.xml
 vendor/etc/audio_policy_engine_product_strategies.xml
@@ -1246,23 +1245,72 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal
 vendor/bin/mi_thermald
+vendor/lib64/libthermalclient.so
+
+# Thermal configs - from hyperos (modified)
+vendor/etc/thermal-hp-normal-global.conf|9eca7d25acdfb189dd15e8276203e77ddb9361fd
+vendor/etc/thermal-hp-normal-india.conf|e467167d4f90b79c9b6959718573113bbba20cbc
+vendor/etc/thermal-hp-normal-jp.conf|ceed5984cc6f04b776c39d7dd93e8f95f9eb1b12
+vendor/etc/thermal-hp-normal.conf|4f80b628ce8e9c38e183edd134352fa872be254d
+vendor/etc/thermal-nolimits-india.conf|db1ad99aa882e2e4757a0c9f1e40a93f98d9e036
+
+# Thermal configs
+vendor/etc/thermal-camera-global.conf
+vendor/etc/thermal-camera-india.conf
+vendor/etc/thermal-camera-jp.conf
 vendor/etc/thermal-camera.conf
+vendor/etc/thermal-chg-only-global.conf
+vendor/etc/thermal-chg-only-india.conf
+vendor/etc/thermal-chg-only-jp.conf
 vendor/etc/thermal-chg-only.conf
+vendor/etc/thermal-class0-global.conf
+vendor/etc/thermal-class0-india.conf
+vendor/etc/thermal-class0-jp.conf
 vendor/etc/thermal-class0.conf
 vendor/etc/thermal-engine.conf
+vendor/etc/thermal-hp-mgame-global.conf
+vendor/etc/thermal-hp-mgame-india.conf
+vendor/etc/thermal-hp-mgame-jp.conf
 vendor/etc/thermal-hp-mgame.conf
-vendor/etc/thermal-hp-normal.conf
+vendor/etc/thermal-map-global.conf
+vendor/etc/thermal-map-india.conf
+vendor/etc/thermal-map-jp.conf
 vendor/etc/thermal-map.conf
+vendor/etc/thermal-mgame-global.conf
+vendor/etc/thermal-mgame-india.conf
+vendor/etc/thermal-mgame-jp.conf
 vendor/etc/thermal-mgame.conf
+vendor/etc/thermal-navigation-global.conf
+vendor/etc/thermal-navigation-india.conf
+vendor/etc/thermal-navigation-jp.conf
 vendor/etc/thermal-navigation.conf
+vendor/etc/thermal-nolimits-global.conf
+vendor/etc/thermal-nolimits-jp.conf
 vendor/etc/thermal-nolimits.conf
+vendor/etc/thermal-normal-global.conf
+vendor/etc/thermal-normal-india.conf
+vendor/etc/thermal-normal-jp.conf
 vendor/etc/thermal-normal.conf
+vendor/etc/thermal-phone-global.conf
+vendor/etc/thermal-phone-india.conf
+vendor/etc/thermal-phone-jp.conf
 vendor/etc/thermal-phone.conf
+vendor/etc/thermal-region-map.conf
+vendor/etc/thermal-tgame-global.conf
+vendor/etc/thermal-tgame-india.conf
+vendor/etc/thermal-tgame-jp.conf
 vendor/etc/thermal-tgame.conf
+vendor/etc/thermal-update-global.conf
+vendor/etc/thermal-update.conf
+vendor/etc/thermal-video-global.conf
+vendor/etc/thermal-video-india.conf
+vendor/etc/thermal-video-jp.conf
 vendor/etc/thermal-video.conf
+vendor/etc/thermal-videochat-global.conf
+vendor/etc/thermal-videochat-india.conf
+vendor/etc/thermal-videochat-jp.conf
 vendor/etc/thermal-videochat.conf
 vendor/etc/thermald-devices.conf
-vendor/lib64/libthermalclient.so
 
 # Time
 vendor/app/TimeService/TimeService.apk
