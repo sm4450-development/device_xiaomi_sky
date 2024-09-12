@@ -1,4 +1,4 @@
-# Device proprietary files - from sky HyperOS V816.0.5.0.UMWCNXM package, unless pinned
+# Device proprietary files - from sky HyperOS1.0.6.0.UMWINXM package, unless pinned
 
 # ACDB
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
