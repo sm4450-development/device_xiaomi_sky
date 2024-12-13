@@ -147,6 +147,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.idle_time=0
 
 # DPM
+PRODUCT_PACKAGES += \
+    libhidlbase_shim
+
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.dpm.vndr.feature=1 \
     persist.vendor.dpm.vndr.halservice.enable=1 \

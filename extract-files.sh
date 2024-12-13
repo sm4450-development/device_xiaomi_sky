@@ -72,6 +72,9 @@ function blob_fixup() {
         vendor/etc/qcril_database/upgrade/config/6.0_config.sql)
             sed -i '/persist.vendor.radio.redir_party_num/ s/true/false/g' "${2}"
             ;;
+        vendor/lib64/vendor.libdpmframework.so)
+            "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
+            ;;
     esac
 }
 
