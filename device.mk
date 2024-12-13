@@ -427,5 +427,9 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, hardware/xiaomi/aidl/vibrator/vibrator-vendor-product.mk)
 
 # Wi-Fi
+PRODUCT_PACKAGES += \
+    symlink_wlan_cfg_adrastea \
+    symlink_wlan_fw_adrastea
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/adrastea/WCNSS_qcom_cfg.ini
