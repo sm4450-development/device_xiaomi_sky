@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -31,20 +31,20 @@ KANG=
 SECTION=
 
 while [ "${#}" -gt 0 ]; do
-    case "${1}" in
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"; shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -56,26 +56,33 @@ fi
 function blob_fixup() {
     case "${1}" in
         vendor/bin/hw/vendor.qti.secure_element@1.2-service)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "jcos_nq_client-v1.so" "jcos_nq_client.so" "${2}"
             "${PATCHELF}" --replace-needed "ls_nq_client-v1.so" "ls_nq_client.so" "${2}"
             "${PATCHELF}" --replace-needed "se_nq_extn_client-v1.so" "se_nq_extn_client.so" "${2}"
             ;;
         vendor/bin/hw/android.hardware.security.keymint-service-qti)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed android.hardware.security.rkp-V3-ndk.so "${2}"
             ;;
         vendor/lib64/libqtikeymint.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed android.hardware.security.rkp-V3-ndk.so "${2}"
 	    ;;
 	vendor/lib64/libhme.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
             ;;
         vendor/etc/qcril_database/upgrade/config/6.0_config.sql)
+            [ "$2" = "" ] && return 0
             sed -i '/persist.vendor.radio.redir_party_num/ s/true/false/g' "${2}"
             ;;
         vendor/lib64/vendor.libdpmframework.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy | vendor/etc/seccomp_policy/modemManager.policy | vendor/etc/seccomp_policy/qwesd@2.0.policy | vendor/etc/seccomp_policy/wfdhdcphalservice.policy)
+            [ "$2" = "" ] && return 0
             [ -n "$(tail -c 1 "${2}")" ] && echo >> "${2}"
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
             ;;
@@ -84,7 +91,17 @@ function blob_fixup() {
             [ -n "$(tail -c 1 "${2}")" ] && echo >> "${2}"
             grep -q "setsockopt: 1" "${2}" || echo "setsockopt: 1" >> "${2}"
             ;;
+        *)
+            return 1
+            ;;
     esac
+
+    return 0
+
+}
+
+function blob_fixup_dry() {
+    blob_fixup "$1" ""
 }
 
 # Initialize the helper
