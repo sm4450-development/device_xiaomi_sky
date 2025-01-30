@@ -1443,10 +1443,6 @@ vendor/lib64/vendor.qti.hardware.trustedui@1.0.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
 
-# USB
-vendor/bin/init.qcom.usb.sh
-vendor/etc/init/hw/init.qcom.usb.rc
-
 # Wi-Fi
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
