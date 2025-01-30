@@ -157,5 +157,15 @@ service ssgqmigd /vendor/bin/ssgqmigd64
     group radio gps system
     socket ssgqmig seqpacket 0660 radio inet
 
+service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.display.composer-service
+    override
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    socket pps stream 0660 system system
+    task_profiles ProcessCapacityHigh HighPerformance
+
 on property:sys.boot_completed=1
     write /sys/class/thermal/thermal_message/sconfig 500

@@ -92,11 +92,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Camera
 $(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
 
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.7.vendor \
-    vendor.qti.hardware.camera.aon@1.0.vendor \
-    vendor.qti.hardware.camera.postproc@1.0.vendor
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
@@ -118,8 +113,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Display / Graphics
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.config-V2-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V5-ndk_platform.vendor \
     vendor.qti.hardware.memtrack-service
 
 PRODUCT_ODM_PROPERTIES += \
@@ -147,9 +140,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.idle_time=0
 
 # DPM
-PRODUCT_PACKAGES += \
-    libhidlbase_shim
-
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.dpm.vndr.feature=1 \
     persist.vendor.dpm.vndr.halservice.enable=1 \
@@ -157,9 +147,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor \
-    android.hardware.drm-service.clearkey \
-    libdrm.vendor
+    android.hardware.drm-service.clearkey
 
 PRODUCT_VENDOR_PROPERTIES += \
     drm.service.enabled=true
@@ -190,19 +178,13 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # FM
 BOARD_HAVE_QCOM_FM := true
 
-# GPS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss-V1-ndk_platform.vendor
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.xiaomi \
-    android.hardware.health-service.xiaomi_recovery \
-    android.hardware.health@1.0.vendor \
-    android.hardware.health@2.1.vendor
+    android.hardware.health-service.xiaomi_recovery
 
 # Hidl
 PRODUCT_PACKAGES += \
@@ -239,12 +221,7 @@ KERNEL_PREBUILT_DIR := $(LOCAL_PATH)-kernel
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.keymaster@4.1.vendor \
-    android.hardware.security.rkp-V3-ndk.vendor \
-    android.hardware.security.sharedsecret-V1-ndk_platform.vendor \
-    android.hardware.security.keymint-V1-ndk_platform.vendor \
-    libkeymaster_messages.vendor
+    android.hardware.hardware_keystore.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
@@ -282,12 +259,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 endif
 
 # Media
-PRODUCT_PACKAGES += \
-    libavservices_minijail_vendor \
-    libcodec2_hidl@1.2.vendor \
-    libcodec2_soft_common.vendor \
-    libsfplugin_ccodec_utils.vendor
-
 PRODUCT_VENDOR_PROPERTIES += \
     debug.stagefright.c2inputsurface=-1 \
     ro.mediaserver.64b.enable=true
@@ -390,28 +361,6 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti-v2
-
-# TrustedUI
-PRODUCT_PACKAGES += \
-    android.hidl.memory.block@1.0.vendor \
-    vendor.qti.hardware.systemhelper@1.0.vendor
-
-# USB
-PRODUCT_ODM_PROPERTIES += \
-    vendor.usb.use_gadget_hal=0
-
-ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.usb.config=mtp,adb
-endif
-
-# Usb
-PRODUCT_PACKAGES += \
-    libusbhost.vendor
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
 # VNDK
 PRODUCT_PACKAGES += \

@@ -31,6 +31,7 @@ KANG=
 SECTION=
 
 while [ "${#}" -gt 0 ]; do
+    case "${1}" in
         -n | --no-cleanup)
             CLEAN_VENDOR=false
             ;;
@@ -72,6 +73,10 @@ function blob_fixup() {
 	vendor/lib64/libhme.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
+	vendor/bin/qcc-trd)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
             ;;
         vendor/etc/qcril_database/upgrade/config/6.0_config.sql)
             [ "$2" = "" ] && return 0
